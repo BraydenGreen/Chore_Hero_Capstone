@@ -1,4 +1,26 @@
 Rails.application.routes.draw do
+  get 'badges/index'
+
+  get 'badges/new'
+
+  get 'badges/create'
+
+  get 'badges/edit'
+
+  get 'chores/index'
+
+  get 'chores/new'
+
+  get 'chores/create'
+
+  get 'chores/edit'
+
+  get 'chores/show'
+
+  get 'children/index'
+
+  get 'parents/index'
+
   get 'static_pages/home'
 
   get 'static_pages/about'

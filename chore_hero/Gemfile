@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.2'
 gem 'materialize-sass'
 
 gem 'devise', '~>3.4.0'
@@ -44,7 +44,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'populator'
-  
+
 end
 
 group :development do
