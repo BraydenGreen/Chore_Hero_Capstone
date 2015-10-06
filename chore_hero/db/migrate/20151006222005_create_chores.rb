@@ -5,6 +5,7 @@ class CreateChores < ActiveRecord::Migration
       t.text :description
       t.float :xp_value
       t.boolean :complete
+      t.belongs_to :child
 
       t.timestamps null: false
     end

@@ -3,6 +3,7 @@ class CreateChildren < ActiveRecord::Migration
     create_table :children do |t|
       t.string :name
       t.integer :age
+      t.belongs_to :parent
 
       t.timestamps null: false
     end

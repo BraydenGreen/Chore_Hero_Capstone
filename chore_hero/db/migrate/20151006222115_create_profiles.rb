@@ -5,6 +5,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.integer :xp_level
       t.string :custom_name
       t.string :archenemy
+      t.belongs_to :child
 
       t.timestamps null: false
     end

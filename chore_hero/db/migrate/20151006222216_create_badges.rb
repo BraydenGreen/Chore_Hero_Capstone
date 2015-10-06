@@ -4,6 +4,7 @@ class CreateBadges < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.float :badge_multiplier
+      t.belongs_to :child
 
       t.timestamps null: false
     end
