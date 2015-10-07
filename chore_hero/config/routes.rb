@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  get 'children/index'
-
-  get 'parents/index'
-
   get 'static_pages/about'
 
   get 'static_pages/faq'
 
-  root to: 'static_pages#home'
+  root 'static_pages#home'
   
   resources :badges
   resources :chores
