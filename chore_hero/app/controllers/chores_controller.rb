@@ -34,17 +34,10 @@ class ChoresController < ApplicationController
     redirect_to chore_path(current_user)
   end
 
-  def vote
-    @chore = Chore.find(params[:id])
-    @user = current_user
-    @chore.liked_by @user
-    redirect_to users_path
-  end
-
   private
 
      def chore_params
-       params.require(:chore).permit(:user_id, :title, :description, :chore_multiplier)
+       params.require(:chore).permit(:user_id, :title, :description, :xp_value)
      end
     
      def find_chore
