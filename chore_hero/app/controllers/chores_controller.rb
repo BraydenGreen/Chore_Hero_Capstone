@@ -1,6 +1,6 @@
-class BadgesController < ApplicationController
+class ChoresController < ApplicationController
   
-  before_action :find_badge, only: [:show, :edit, :update, :destroy]
+  before_action :find_chore, only: [:show, :edit, :update, :destroy]
   
   def show
   end
@@ -9,46 +9,46 @@ class BadgesController < ApplicationController
   end
 
   def update
-    if @badge.update(badge_params)
-      redirect_to badge_path(@badge.id)
+    if @chore.update(chore_params)
+      redirect_to chore_path(@chore.id)
     else
       render 'edit'
     end
   end
 
   def new
-    @badge = Badge.new
+    @chore = Chore.new
   end
 
   def create
-    @badge = Badge.new(badge_params)
-      if @badge.save
-        redirect_to badge_path(@badge.id)
+    @chore = Chore.new(chore_params)
+      if @chore.save
+        redirect_to chore_path(@chore.id)
       else
         render 'new'
       end
   end
 
   def destroy
-    @badge.destroy
-    redirect_to badge_path(current_user)
+    @chore.destroy
+    redirect_to chore_path(current_user)
   end
 
   def vote
-    @badge = Badge.find(params[:id])
+    @chore = Chore.find(params[:id])
     @user = current_user
-    @badge.liked_by @user
+    @chore.liked_by @user
     redirect_to users_path
   end
 
   private
 
-     def badge_params
-       params.require(:badge).permit(:user_id, :title, :description, :badge_multiplier)
+     def chore_params
+       params.require(:chore).permit(:user_id, :title, :description, :chore_multiplier)
      end
     
-     def find_badge
-       @badge = badge.find(params[:id])
+     def find_chore
+       @chore = Chore.find(params[:id])
      end
 
 end
