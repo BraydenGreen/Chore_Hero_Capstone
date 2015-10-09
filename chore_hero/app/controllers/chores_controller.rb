@@ -31,7 +31,7 @@ class ChoresController < ApplicationController
 
   def destroy
     @chore.destroy
-    redirect_to chore_path(current_user)
+    redirect_to chore_path
   end
 
   private
