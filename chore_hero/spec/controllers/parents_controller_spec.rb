@@ -9,4 +9,10 @@ RSpec.describe ParentsController, type: :controller do
     end
   end
 
+  describe "GET #parent_show" do
+    it "shows the parent" do
+      get :parent_show
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
