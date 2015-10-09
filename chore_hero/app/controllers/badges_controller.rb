@@ -1,5 +1,5 @@
 class BadgesController < ApplicationController
-  
+
   before_action :find_badge, only: [:show, :edit, :update, :destroy]
   
   def show
@@ -46,7 +46,7 @@ class BadgesController < ApplicationController
      def badge_params
        params.require(:badge).permit(:user_id, :title, :description, :badge_multiplier)
      end
-    
+
      def find_badge
        @badge = badge.find(params[:id])
      end
