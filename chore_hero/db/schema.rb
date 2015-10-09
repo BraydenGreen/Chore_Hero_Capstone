@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20151006222620) do
     t.string   "title"
     t.string   "description"
     t.float    "badge_multiplier"
+    t.integer  "child_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20151006222620) do
   create_table "children", force: :cascade do |t|
     t.string   "name"
     t.integer  "age"
+    t.integer  "parent_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 20151006222620) do
     t.text     "description"
     t.float    "xp_value"
     t.boolean  "complete"
+    t.integer  "child_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -77,6 +80,7 @@ ActiveRecord::Schema.define(version: 20151006222620) do
     t.integer  "xp_level"
     t.string   "custom_name"
     t.string   "archenemy"
+    t.integer  "child_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
