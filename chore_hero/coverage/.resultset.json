@@ -12,13 +12,6 @@
         0,
         null,
         null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
         null
       ],
       "/Users/caleb/Desktop/Chore_Hero_Capstone/chore_hero/spec/rails_helper.rb": [
@@ -598,10 +591,13 @@
         null,
         null,
         null,
+        1,
+        1,
+        null,
         null,
         null
       ]
     },
-    "timestamp": 1444423409
+    "timestamp": 1444426087
   }
 }
