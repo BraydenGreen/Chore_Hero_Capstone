@@ -1,55 +1,72 @@
-%nav
+%nav.grey
   .nav-wrapper
-    = link_to "Chore Hero", root_path, class: 'brand-logo right'
-    %a.button-collapse{"data-activates" => "nav-mobile", :href => "#"}
-      %i.material-icons menu
-    %ul.left.hide-on-med-and-down
+    %a.brand-logo.center{:href => "#"} Chore Hero
+    %ul#nav-mobile.left.hide-on-med-and-down
       %li
         = link_to "About", about_path
       %li
         = link_to "FAQ", faq_path
+    %ul#nav-mobile.right.hide-on-med-and-down
       %li
-    - if parent_signed_in? || child_signed_in?
-      %ul.right.hide-on-med-and-down
-        %li
-          = link_to 'Parent Sign In', new_parent_session_path, class: 'hide'
-        %li
-          = link_to 'Sign up', new_parent_session_path, class: 'hide'
-    - else
-      %ul.right.hide-on-med-and-down
-        %li
-          = link_to 'Sign in', new_parent_session_path
-        %li
-          = link_to 'Sign up', new_parent_session_path
-    - if parent_signed_in? || child_signed_in?
-      %ul.right.hide-on-med-and-down
-        %li
-          =link_to "New Goal", new_parent_session_path
-        %li
-          =link_to 'Edit Account Information', new_parent_session_path
-        %li
-          = link_to 'Sign Out', new_parent_session_path
-    - if parent_signed_in? || child_signed_in?
-      %ul#nav-mobile.side-nav.hide-on-med-and-up
-        %li
-          = link_to "New Goal", new_parent_session_path
-        %li
-          = link_to 'Sign Out', new_parent_session_path
-        %li
-          = link_to 'Edit Account Information', new_parent_session_path
-        %li
-          = link_to 'Sign in', new_parent_session_path
-        %li
-          = link_to 'Sign up', new_parent_session_path
-    - else
-      %ul#nav-mobile.side-nav.hide-on-med-and-up
-        %li
-          = link_to 'Sign in', new_parent_session_path
-        %li
-          = link_to 'Sign up', new_parent_session_path
-        %li
-          = link_to "About", new_parent_session_path
-        %li
-          = link_to "FAQ", new_parent_session_path
-        %li
-          = link_to "Contact", new_parent_session_path
+        = link_to "Parent Sign In", new_parent_session_path
+      %li
+        = link_to "Child Sign In", new_child_session_path
+      %li
+        %a{:href => "collapsible.html"} Log Out
+
+
+-# %nav
+-#   .nav-wrapper
+-#     = link_to "Chore Hero", root_path, class: 'brand-logo right'
+-#     %a.button-collapse{"data-activates" => "nav-mobile", :href => "#"}
+-#       %i.material-icons menu
+-#     %ul.left.hide-on-med-and-down
+-#       %li
+-#         = link_to "About", about_path
+-#       %li
+-#         = link_to "FAQ", faq_path
+-#       %li
+-#     - if parent_signed_in? || child_signed_in?
+-#       %ul.right.hide-on-med-and-down
+-#         %li
+-#           = link_to 'Parent Sign In', new_parent_session_path, class: 'hide'
+-#         %li
+-#           = link_to 'Sign up', new_parent_session_path, class: 'hide'
+-#     - else
+-#       %ul.right.hide-on-med-and-down
+-#         %li
+-#           = link_to 'Sign in', new_parent_session_path
+-#         %li
+-#           = link_to 'Sign up', new_parent_session_path
+-#     - if parent_signed_in? || child_signed_in?
+-#       %ul.right.hide-on-med-and-down
+-#         %li
+-#           =link_to "New Goal", new_parent_session_path
+-#         %li
+-#           =link_to 'Edit Account Information', new_parent_session_path
+-#         %li
+-#           = link_to 'Sign Out', new_parent_session_path
+-#     - if parent_signed_in? || child_signed_in?
+-#       %ul#nav-mobile.side-nav.hide-on-med-and-up
+-#         %li
+-#           = link_to "New Goal", new_parent_session_path
+-#         %li
+-#           = link_to 'Sign Out', new_parent_session_path
+-#         %li
+-#           = link_to 'Edit Account Information', new_parent_session_path
+-#         %li
+-#           = link_to 'Sign in', new_parent_session_path
+-#         %li
+-#           = link_to 'Sign up', new_parent_session_path
+-#     - else
+-#       %ul#nav-mobile.side-nav.hide-on-med-and-up
+-#         %li
+-#           = link_to 'Sign in', new_parent_session_path
+-#         %li
+-#           = link_to 'Sign up', new_parent_session_path
+-#         %li
+-#           = link_to "About", new_parent_session_path
+-#         %li
+-#           = link_to "FAQ", new_parent_session_path
+-#         %li
+-#           = link_to "Contact", new_parent_session_path

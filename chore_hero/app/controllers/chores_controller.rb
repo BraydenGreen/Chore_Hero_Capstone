@@ -1,7 +1,7 @@
 class ChoresController < ApplicationController
-  
+  before_filter :authenticate_parent!, except: [:show]
   before_action :find_chore, only: [:show, :edit, :update, :destroy]
-  
+
   def show
   end
 
@@ -39,7 +39,7 @@ class ChoresController < ApplicationController
      def chore_params
        params.require(:chore).permit(:user_id, :title, :description, :xp_value)
      end
-    
+
      def find_chore
        @chore = Chore.find(params[:id])
      end

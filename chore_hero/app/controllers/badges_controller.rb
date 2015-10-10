@@ -1,7 +1,7 @@
 class BadgesController < ApplicationController
-
+  before_filter :authenticate_parent!, except: [:show]
   before_action :find_badge, only: [:show, :edit, :update, :destroy]
-  
+
   def show
   end
 
