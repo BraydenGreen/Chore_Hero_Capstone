@@ -1,6 +1,7 @@
 %nav.grey
   .nav-wrapper
-    %a.brand-logo.center{:href => "#"} Chore Hero
+    %div.brand-logo.center
+      = link_to "Chore Hero", root_path
     %ul#nav-mobile.left.hide-on-med-and-down
       %li
         = link_to "About", about_path
@@ -12,7 +13,7 @@
       %li
         = link_to "Child Sign In", new_child_session_path
       %li
-        %a{:href => "collapsible.html"} Log Out
+        = link_to "Log Out", destroy_parent_session_path
 
 -# %nav
 -#   .nav-wrapper
