@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   devise_for :children, controllers: { sessions: 'children/sessions'}
   devise_for :parents, controllers: {sessions: 'parent/sessions', registrations: 'parent/registrations'}
+  
   resources :badges
   resources :chores
 
