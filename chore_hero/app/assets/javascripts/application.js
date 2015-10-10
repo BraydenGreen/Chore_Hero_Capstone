@@ -15,3 +15,7 @@
 //= require jquery_ujs
 
 //= require_tree .
+
+$(document).ready(function(){
+  $(".button-collapse").sideNav({edge: 'left'});
+});
