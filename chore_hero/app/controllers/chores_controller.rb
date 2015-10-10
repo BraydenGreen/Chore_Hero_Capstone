@@ -1,7 +1,7 @@
 class ChoresController < ApplicationController
-  
+  before_filter :authenticate_parent!, except: [:show]
   before_action :find_chore, only: [:show, :edit, :update, :destroy]
-  
+
   def show
   end
 
@@ -31,22 +31,15 @@ class ChoresController < ApplicationController
 
   def destroy
     @chore.destroy
-    redirect_to chore_path(current_user)
-  end
-
-  def vote
-    @chore = Chore.find(params[:id])
-    @user = current_user
-    @chore.liked_by @user
-    redirect_to users_path
+    redirect_to chore_path
   end
 
   private
 
      def chore_params
-       params.require(:chore).permit(:user_id, :title, :description, :chore_multiplier)
+       params.require(:chore).permit(:user_id, :title, :description, :xp_value)
      end
-    
+
      def find_chore
        @chore = Chore.find(params[:id])
      end

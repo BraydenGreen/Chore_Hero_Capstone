@@ -1,7 +1,7 @@
 class BadgesController < ApplicationController
-  
+  before_filter :authenticate_parent!, except: [:show]
   before_action :find_badge, only: [:show, :edit, :update, :destroy]
-  
+
   def show
   end
 
@@ -46,7 +46,7 @@ class BadgesController < ApplicationController
      def badge_params
        params.require(:badge).permit(:user_id, :title, :description, :badge_multiplier)
      end
-    
+
      def find_badge
        @badge = badge.find(params[:id])
      end
