@@ -31,14 +31,7 @@ class BadgesController < ApplicationController
 
   def destroy
     @badge.destroy
-    redirect_to badge_path(current_user)
-  end
-
-  def vote
-    @badge = Badge.find(params[:id])
-    @user = current_user
-    @badge.liked_by @user
-    redirect_to users_path
+    redirect_to badge_path(current_badge)
   end
 
   private
