@@ -1,6 +1,10 @@
 class ChoresController < ApplicationController
-  before_filter :authenticate_parent!, except: [:show]
-  before_action :find_chore, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_parent!, except: [:index, :show]
+  before_action :chore, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @chores = Chore.all
+  end
 
   def show
   end
@@ -10,7 +14,7 @@ class ChoresController < ApplicationController
 
   def update
     if @chore.update(chore_params)
-      redirect_to chore_path(@chore.id)
+      redirect_to chores_path(@chore.id)
     else
       render 'edit'
     end
@@ -23,7 +27,7 @@ class ChoresController < ApplicationController
   def create
     @chore = Chore.new(chore_params)
       if @chore.save
-        redirect_to chore_path(@chore.id)
+        redirect_to chores_path(@chore.id)
       else
         render 'new'
       end
@@ -31,16 +35,16 @@ class ChoresController < ApplicationController
 
   def destroy
     @chore.destroy
-    redirect_to chore_path
+    redirect_to chores_path
   end
 
   private
 
      def chore_params
-       params.require(:chore).permit(:user_id, :title, :description, :xp_value, :complete)
+       params.require(:chore).permit(:title, :description, :xp_value, :complete)
      end
 
-     def find_chore
+     def chore
        @chore = Chore.find(params[:id])
      end
 

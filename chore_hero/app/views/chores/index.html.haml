@@ -1,0 +1,25 @@
+.container.center
+  .row
+    .col.s12
+      %h1 All Chores
+    %hr
+  .row
+    - if @chores.any?
+      - @chores.each do |chore|
+        .col.m6
+          .row
+            .col.m6
+
+            .col.m6.left-align
+              = link_to chore.title, chore_path(chore)
+              %p Description: #{chore.description}
+              %p XP Value: #{chore.xp_value}
+              
+              / TODO : Create parent signed in checker
+              = button_to 'Edit', edit_chore_path(chore), method: 'get'
+              = button_to 'Destroy', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}
+    - else
+      %h3 There are currently no chores.
+      = link_to 'Create a new chore', new_chore_path
+.container
+  %hr

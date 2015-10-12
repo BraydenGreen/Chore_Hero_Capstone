@@ -1,0 +1,17 @@
+.container
+  .row
+    .center-align
+      %h5.col.s12
+        An urgent bulletin has just been created
+      %h1.col.s12
+        = @chore.title
+      %p.col.l6.s12
+        XP Value:
+        = @chore.xp_value
+      %p.col.l6.s12
+      %hr.col.s12
+      %p.col.s12
+        In order to complete the mission of #{@chore.title} , and gain #{@chore.xp_value} XP, you will need to:
+        = @chore.description
+      /- if @chore.child_id == current_child.id
+      /%p Mark Chore Complete? (If shows then enter complete chore logic here)
