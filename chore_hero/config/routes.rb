@@ -8,9 +8,8 @@ Rails.application.routes.draw do
 
   get '/faq', to: 'static_pages#faq', as: 'faq'
   get '/about', to: 'static_pages#about', as: 'about'
-  # get '/home', to: 'static_pages#home', as: 'home'
+  
 
   get '/parent_show', to: 'parents#parent_show', as: :parent_show
-  # get '/parents/sign_out' 
-
+  
 end

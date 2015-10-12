@@ -22,12 +22,12 @@
 
   def create
     @profile = Profile.new(profile_params)
-      if @profile.save
-        redirect_to profile_path(@profile.id)
-      else
-        render 'new'
-      end
-  end
+    if @profile.save
+      redirect_to profile_path(@profile.id)
+    else
+      render 'new'
+    end
+  end  
 
   def destroy
     @profile.destroy
