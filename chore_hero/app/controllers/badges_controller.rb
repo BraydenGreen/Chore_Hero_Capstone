@@ -1,6 +1,10 @@
 class BadgesController < ApplicationController
-  before_filter :authenticate_parent!, except: [:show]
-  before_action :find_badge, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_parent!, except: [:show, :index]
+  before_action :badge, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @badges = Badge.all
+  end
 
   def show
   end
@@ -10,7 +14,7 @@ class BadgesController < ApplicationController
 
   def update
     if @badge.update(badge_params)
-      redirect_to badge_path(@badge.id)
+      redirect_to badges_path(@badge.id)
     else
       render 'edit'
     end
@@ -23,7 +27,7 @@ class BadgesController < ApplicationController
   def create
     @badge = Badge.new(badge_params)
       if @badge.save
-        redirect_to badge_path(@badge.id)
+        redirect_to badges_path(@badge.id)
       else
         render 'new'
       end
@@ -31,17 +35,17 @@ class BadgesController < ApplicationController
 
   def destroy
     @badge.destroy
-    redirect_to badge_path(current_badge)
+    redirect_to badges_path
   end
 
   private
 
      def badge_params
-       params.require(:badge).permit(:user_id, :title, :description, :badge_multiplier)
+       params.require(:badge).permit(:title, :description, :badge_multiplier)
      end
 
-     def find_badge
-       @badge = badge.find(params[:id])
+     def badge
+       @badge = Badge.find(params[:id])
      end
 
 end

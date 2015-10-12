@@ -1,0 +1,14 @@
+.container
+  .row
+    .center-align
+      %h5.col.s12
+        The #{badge.title} Badge
+      %h1.col.s12
+        = @badge.title
+      %p.col.l6.s12
+        = @badge.description
+        
+      %hr.col.s12
+        
+      /- if @badge.child_id == current_child.id
+      /%p Mark badge Complete? (If shows then enter complete badge logic here)
