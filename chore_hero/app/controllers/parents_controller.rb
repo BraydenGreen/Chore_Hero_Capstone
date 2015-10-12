@@ -5,4 +5,5 @@ class ParentsController < ApplicationController
 
   def parent_show
   end
+
 end

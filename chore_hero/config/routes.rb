@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   # get '/home', to: 'static_pages#home', as: 'home'
 
   get '/parent_show', to: 'parents#parent_show', as: :parent_show
+  # get '/parents/sign_out' 
 
 end
