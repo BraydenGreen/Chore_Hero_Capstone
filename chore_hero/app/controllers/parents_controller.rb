@@ -6,4 +6,8 @@ class ParentsController < ApplicationController
   def parent_show
   end
 
+  def self.create_child
+    #creates child possibly by routing to create child variable 
+  end
+
 end

@@ -13,10 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+
  @import "materialize/components/color";
  $primary-color: color("indigo", "darken-4") !default;
  $secondary-color: color("blue", "darken-4") !default;
- $link-color: color("blue", "darken-2") !default;
+ $link-color: color("red", "darken-1") !default;
  
  @import 'materialize';
 
@@ -30,3 +32,8 @@
     flex: 1 0 auto;
   }
      
+.headline {
+
+  font-family: 'Permanent Marker', cursive;
+
+}

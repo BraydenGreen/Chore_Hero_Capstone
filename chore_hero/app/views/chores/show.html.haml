@@ -1,16 +1,15 @@
 .container
   .row
     .center-align
+      %br
       %h5.col.s12
-        An urgent bulletin has just been created
+        An urgent bulletin has just been created in the mission log!
       %h1.col.s12
         = @chore.title
-      %p.col.l6.s12
-        XP Value:
-        = @chore.xp_value
-      %p.col.l6.s12
-      %hr.col.s12
       %p.col.s12
+        XP Value: #{@chore.xp_value}
+      %hr.col.s12
+      %p.col.s12.center-align
         In order to complete the mission of #{@chore.title} , and gain #{@chore.xp_value} XP, you will need to:
         = @chore.description
       /- if @chore.child_id == current_child.id
