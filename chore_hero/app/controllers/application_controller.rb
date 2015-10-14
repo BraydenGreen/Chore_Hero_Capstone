@@ -13,5 +13,9 @@ class ApplicationController < ActionController::Base
   # before_filter :authenticate_parent!
   # before_filter :authenticate_child!
 
+  def after_sign_in_path_for(resource)
+    parent_show_path
+  end
+
 
 end
