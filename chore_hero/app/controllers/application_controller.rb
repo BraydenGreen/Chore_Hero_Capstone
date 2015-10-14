@@ -16,6 +16,4 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     parent_show_path
   end
-
-
 end
