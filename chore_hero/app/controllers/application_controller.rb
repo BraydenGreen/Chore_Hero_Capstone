@@ -13,5 +13,4 @@ class ApplicationController < ActionController::Base
   # before_filter :authenticate_parent!
   # before_filter :authenticate_child!
 
-
 end
