@@ -3,7 +3,7 @@ class ChildrenController < ApplicationController
   before_action :children, only: [:show, :edit, :update, :destroy]
 
   def index
-    @child = Child.all
+    @children = Child.all
   end
 
   def show
@@ -16,7 +16,7 @@ class ChildrenController < ApplicationController
     if @child.update(children_params)
       redirect_to children_path(@child.id)
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -27,9 +27,9 @@ class ChildrenController < ApplicationController
   def create
     @child = Child.new(children_params)
       if @child.save
-        redirect_to children_path(@child.id)
+        redirect_to parent_show_path
       else
-        render 'new'
+        render :new
       end
   end
 
@@ -41,11 +41,10 @@ class ChildrenController < ApplicationController
   private
 
      def children_params
-       params.require(:child).permit(:title, :description, :xp_value, :complete)
+       params.require(:child).permit(:name, :password, :email, :parent_id)
      end
 
      def children
        @child = Child.find(params[:id])
      end
-
 end
