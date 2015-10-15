@@ -1,11 +1,21 @@
-%h2 this is the parent show page
-
-.row
-  #parent-show-content.col.s10.offset-s1
-    .row{style: "margin-top: 2.5%; margin-bottom: 2.5%; padding: 2.5%; background: rgba(100, 123, 166, 0.15);"}
-      %img.col.s12.m4
-        -# = link_to "#{@parent.parent.parent_name}", parent_path(@chore.parent_id)
-
+.container
+  .row
+    .col.s12.center
+      %h1#bold.headline #{Parent.name}'s Homepage
+  %hr
+  .row
+    .col.m4
+    /= image_tag @actor.photo.url(:medium)
+    .col.m8
+  %hr
+  .row
+    .col.s12
+      %h3.headline Kids
+      - current_parent.children.each do |kids|
+        .col.m4
+          %h5 #{kids.name}
+          /= image_tag movie.photo.url(:medium)
+  %hr
 
 %li= link_to "Add Child", new_child_path
-<--! %li= link_to "Edit your child's profile", edit_child_path -->
+
