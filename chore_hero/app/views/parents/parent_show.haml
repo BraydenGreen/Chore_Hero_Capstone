@@ -1,0 +1,21 @@
+.container
+  .row
+    .col.s12.center
+      %h1#bold.headline #{Parent.name}'s Homepage
+  %hr
+  .row
+    .col.m4
+    /= image_tag @actor.photo.url(:medium)
+    .col.m8
+  %hr
+  .row
+    .col.s12
+      %h3.headline Kids
+      - current_parent.children.each do |kids|
+        .col.m4
+          %h5 #{kids.name}
+          /= image_tag movie.photo.url(:medium)
+  %hr
+
+%li= link_to "Add Child", new_child_path
+
