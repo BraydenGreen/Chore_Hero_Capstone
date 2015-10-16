@@ -12,6 +12,6 @@
         = f.label :xp_value
         = f.text_field :xp_value
         
-      = f.hidden_field :parent_id, value: current_parent.id
+      = f.hidden_field :user_id, value: current_user.id
 
       = f.submit 'Submit', class: 'btn'

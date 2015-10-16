@@ -15,7 +15,7 @@
               %p Description: #{badge.description}
               %p Badge Rank: #{badge.badge_multiplier}
               
-              / TODO : Create parent signed in checker
+              / TODO : Create user signed in checker
               = button_to 'Edit', edit_badge_path(badge), method: 'get'
               = button_to 'Destroy', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}
     - else

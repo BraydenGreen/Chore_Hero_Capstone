@@ -1,5 +1,5 @@
 class ChildrenController < ApplicationController
-  before_filter :authenticate_parent!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index, :show]
   before_action :children, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -27,7 +27,7 @@ class ChildrenController < ApplicationController
   def create
     @child = Child.new(children_params)
       if @child.save
-        redirect_to parent_show_path
+        redirect_to user_show_path
       else
         render :new
       end
@@ -41,7 +41,7 @@ class ChildrenController < ApplicationController
   private
 
      def children_params
-       params.require(:child).permit(:name, :password, :email, :parent_id)
+       params.require(:child).permit(:name, :password, :email, :user_id)
      end
 
      def children

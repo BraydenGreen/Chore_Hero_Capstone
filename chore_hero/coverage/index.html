@@ -111,7 +111,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#5556a6ee551b40de138b4bf99e8ccb61ef37d5a1" class="src_link" title="app/helpers/parents_helper.rb">app/helpers/parents_helper.rb</a></td>
+        <td class="strong"><a href="#5556a6ee551b40de138b4bf99e8ccb61ef37d5a1" class="src_link" title="app/helpers/users_helper.rb">app/helpers/users_helper.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>2</td>
         <td>1</td>
@@ -151,7 +151,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#07219579580fa9106178a02bc34a2b982c1b218d" class="src_link" title="app/models/parent.rb">app/models/parent.rb</a></td>
+        <td class="strong"><a href="#07219579580fa9106178a02bc34a2b982c1b218d" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>8</td>
         <td>3</td>
@@ -806,7 +806,7 @@
       
         <div class="source_table" id="5556a6ee551b40de138b4bf99e8ccb61ef37d5a1">
   <div class="header">
-    <h3>app/helpers/parents_helper.rb</h3>
+    <h3>app/helpers/users_helper.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>1</b> relevant lines. 
@@ -821,7 +821,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">module ParentsHelper</code>
+          <code class="ruby">module usersHelper</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
@@ -935,7 +935,7 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  belongs_to :parent       </code>
+          <code class="ruby">  belongs_to :user       </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
@@ -986,7 +986,7 @@
       
         <div class="source_table" id="07219579580fa9106178a02bc34a2b982c1b218d">
   <div class="header">
-    <h3>app/models/parent.rb</h3>
+    <h3>app/models/user.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>3</b> relevant lines. 
@@ -1001,7 +1001,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class Parent &lt; ActiveRecord::Base</code>
+          <code class="ruby">class user &lt; ActiveRecord::Base</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
@@ -3809,7 +3809,7 @@
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">  devise_for :parents, controllers: {sessions: &#39;parent/sessions&#39;, registrations: &#39;parent/registraions&#39;}</code>
+          <code class="ruby">  devise_for :users, controllers: {sessions: &#39;user/sessions&#39;, registrations: &#39;user/registraions&#39;}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
