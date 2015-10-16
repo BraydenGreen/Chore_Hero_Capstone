@@ -10,10 +10,11 @@ class ApplicationController < ActionController::Base
   #   devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name
   #   devise_parameter_sanitizer.for(:account_update) << :first_name << :last_name
   # end
-  # before_filter :authenticate_parent!
+  # before_filter :authenticate_user!
   # before_filter :authenticate_child!
 
   def after_sign_in_path_for(resource)
-    parent_show_path
+    user_path(resource)
   end
+
 end

@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'static_pages#home'
-  devise_for :children, controllers: { sessions: 'children/sessions', registrations: 'children'}
-  devise_for :parents, controllers: {sessions: 'parent/sessions', registrations: 'parent/registrations'} 
-  
-  
+    
   resources :children
   resources :badges
   resources :chores
@@ -12,6 +10,5 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about', as: 'about'
   
 
-  get '/parent_show', to: 'parents#parent_show', as: :parent_show
-  
+  resources :users, :only => [:show, :edit, :update, :destroy]
 end

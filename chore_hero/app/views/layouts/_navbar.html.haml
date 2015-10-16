@@ -8,12 +8,11 @@
       %i.material-icons menu
     %ul.right.hide-on-med-and-down
       %li
-        - if parent_signed_in?
-          %li= link_to "Your Profile", parent_show_path
+        - if user_signed_in?
+          %li= link_to "Your Profile", user_path(current_user)
           %li= link_to "Chores", chores_path
           %li= link_to "Badges", badges_path
-          %li= link_to 'Log Out', destroy_parent_session_path, method: :delete
+          %li= link_to 'Log Out', destroy_user_session_path, method: :delete
         - else
-          %li= link_to 'Parent Log In', new_parent_session_path
-          %li= link_to "Child Sign In", new_child_session_path
-          -# %li= link_to 'Sign Up', new_parent_registration_path
+          %li= link_to 'user Log In', new_user_session_path
+          %li= link_to 'Sign Up', new_user_registration_path

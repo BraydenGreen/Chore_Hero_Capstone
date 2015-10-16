@@ -1,5 +1,5 @@
 class ChoresController < ApplicationController
-  before_filter :authenticate_parent!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index, :show]
   before_action :chore, only: [:show, :edit, :update, :destroy]
 
   def index

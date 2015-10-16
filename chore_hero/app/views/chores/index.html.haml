@@ -15,7 +15,7 @@
               %p Description: #{chore.description}
               %p XP Value: #{chore.xp_value}
               
-              / TODO : Create parent signed in checker
+              / TODO : Create user signed in checker
               = button_to 'Edit', edit_chore_path(chore), method: 'get'
               = button_to 'Destroy', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}
     - else
