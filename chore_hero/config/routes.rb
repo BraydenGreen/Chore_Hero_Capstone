@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   resources :badges
   resources :chores
 
+
+
   get '/faq', to: 'static_pages#faq', as: 'faq'
   get '/about', to: 'static_pages#about', as: 'about'
 
 
-  # resources :users, :only => [:show, :edit, :update, :destroy]
-end
+  resources :users, :only => [:show]
