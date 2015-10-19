@@ -9,7 +9,7 @@
     %ul.right.hide-on-med-and-down
       %li
         - if user_signed_in?
-          %li.circle.responsive-img= image_tag(current_user.avatar.url(:thumb))
+          %li= image_tag(current_user.avatar.url(:thumb))
           %li= link_to "Your Profile", user_path(current_user)
           %li= link_to "Chores", chores_path
           %li= link_to "Badges", badges_path
