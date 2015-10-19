@@ -3,15 +3,15 @@
   .row
     = form_for @chore do |f|
       .input-field.col.s12
-        = f.label :title
+        = f.label :title, class: "indigo-text"
         = f.text_field :title
       .input-field.col.s12
-        = f.label :description
+        = f.label :description, class: "indigo-text"
         = f.text_area :description, class: 'materialize-textarea'
       .input-field.col.s12
-        = f.label :xp_value
+        = f.label :xp_value, class: "indigo-text"
         = f.text_field :xp_value
-        
+
       = f.hidden_field :user_id, value: current_user.id
 
-      = f.submit 'Submit', class: 'btn'
+      = f.submit 'Submit', class: 'btn indigo darken-4 white-text'
