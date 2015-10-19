@@ -27,7 +27,7 @@ class ChildrenController < ApplicationController
   def create
     @child = Child.new(children_params)
       if @child.save
-        redirect_to user_show_path
+        redirect_to child_path(@child.id)
       else
         render :new
       end

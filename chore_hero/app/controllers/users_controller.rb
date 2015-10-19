@@ -1,27 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  before_action :user, only: [:show, :edit, :update, :destroy]
+  before_action :user, only: [:show]
   
- def index
-    @users = User.all
-  end
-
-
-  def edit
-  end
-
-  def update
-    if @user.update(user_params)
-      redirect_to users_path(@user.id)
-    else
-      render 'edit'
-    end
-  end
-
-  def destroy
-    @user.destroy
-    redirect_to users_path
-  end
 
   def show
   end
