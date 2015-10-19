@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_action :user, only: [:show]
-  
+
 
   def show
   end

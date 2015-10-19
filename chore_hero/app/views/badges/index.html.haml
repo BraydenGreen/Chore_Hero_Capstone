@@ -1,25 +1,26 @@
 .container.center
-  .row
-    .col.s12
-      %h1.headline All badges
-    %hr
-  .row
-    - if @badges.any?
-      - @badges.each do |badge|
-        .col.m6
-          .row
-            .col.m6
+  #backdrop
+    .row
+      .col.s12
+        %h1.headline All badges
+      %hr
+    .row
+      - if @badges.any?
+        - @badges.each do |badge|
+          .col.m6
+            .row
+              .col.m6
 
-            .col.m6.left-align
-              = link_to badge.title, badge_path(badge)
-              %p Description: #{badge.description}
-              %p Badge Rank: #{badge.badge_multiplier}
-              
-              / TODO : Create user signed in checker
-              = button_to 'Edit', edit_badge_path(badge), method: 'get'
-              = button_to 'Destroy', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}
-    - else
-      %h3 There are currently no badges.
-      = link_to 'Create a new badge', new_badge_path
-.container
-  %hr
+              .col.m6.left-align
+                = link_to badge.title, badge_path(badge)
+                %p Description: #{badge.description}
+                %p Badge Rank: #{badge.badge_multiplier}
+
+                / TODO : Create user signed in checker
+                = button_to 'Edit', edit_badge_path(badge), method: 'get'
+                = button_to 'Destroy', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}
+      - else
+        %h5 There are currently no badges.
+        = link_to 'Create a new badge', new_badge_path, class: 'btn indigo darken-4 white-text'
+-# .container
+-#   %hr

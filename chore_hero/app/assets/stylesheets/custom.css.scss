@@ -1,9 +1,15 @@
-body {
+footer {
    display: flex;
-   min-height: 100vh;
+   min-height: 10vh;
    flex-direction: column;
+   flex: 1 0 auto;
+   padding-top: 10%;
  }
 
- main {
-   flex: 1 0 auto;
- }
+
+#backdrop {
+  background-color: rgb(234, 234, 234);
+  padding: 10px;
+  padding-bottom: 5%;
+  border-radius: 20px;
+}
