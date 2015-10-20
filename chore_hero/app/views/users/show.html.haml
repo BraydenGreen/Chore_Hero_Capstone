@@ -3,11 +3,13 @@
     .col.s12.center
       %h1#bold.headline #{current_user.name}'s Homepage
   %hr
+  %div.center-align
+    %a= link_to "Add Child", new_child_path, class: "btn indigo darken-4 white-text"
   .row
     .col.m4
     /= image_tag @actor.photo.url(:medium)
     .col.m8
-  %hr
+  %br
   .row
     .col.s12
       %h3.headline Kids
