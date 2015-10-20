@@ -1,1 +1,40 @@
-%h1 This is the child show page
+.container
+  .row
+    .col.s12.center
+      %h1#bold.headline #{current_user.name}'s Homepage
+  %hr
+  %div.center-align
+    %a= link_to "Add Chore", new_chore_path, class: "btn indigo darken-4 white-text"
+  .row
+    .col.m4
+    /= image_tag @actor.photo.url(:medium)
+    .col.m8
+  %br
+  .row
+    .col.s12
+      %h3.headline Kids
+      - if current_user.chores.any?
+        %table
+          %thead
+            %tr
+              %th Chore
+              %th Description
+              %th Chore Count
+              %th Actions
+          %tbody
+            - current_user.chores.each do |chore|
+              %tr
+                %td
+                  = chore.name
+                %td
+                  = chore.email
+                %td
+                  = chore.count
+                %td
+                  %span
+                    = link_to 'Edit', edit_child_path(child)
+                  %span
+                    = link_to 'Delete', child_path(child), method: 'delete', data: {confirm: '  Really Delete?'}
+      - else
+        %h3 No Chores, Ask for some more
+  %hr
