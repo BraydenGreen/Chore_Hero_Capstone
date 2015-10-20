@@ -23,8 +23,10 @@
             %li
               %a{:href => "#!"} #{x.name}
             %li.divider
-  
+
         /= f.hidden_field :user_id, value: current_user.id
-  
+
         /= f.submit 'Submit Chore', class: 'btn indigo darken-4 white-text'
+
+        /= link_to 'Cancel', chores_path, class: 'btn indigo darken-4 white-text'
 - else

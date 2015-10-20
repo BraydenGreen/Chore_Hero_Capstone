@@ -11,5 +11,6 @@
         .input-field.col.s12
           = f.label :password, class: "indigo-text"
           = f.password_field :password, class: 'materialize-textarea'
-        
+
       = f.submit 'Submit', class: 'btn indigo darken-4 white-text'
+      = link_to 'Cancel', user_path(current_user), class: 'btn indigo darken-4 white-text'
