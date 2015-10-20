@@ -14,28 +14,28 @@ class ChildrenController < ApplicationController
 
   def update
     if @child.update(children_params)
-      redirect_to children_path(@child.id)
+      redirect_to user_path(current_user.id)
     else
       render :edit
     end
   end
 
   def new
-    @child = Child.new
+    @child = Child.new(type: 'Child')
   end
 
   def create
-    @child = Child.new(children_params)
-      if @child.save
-        redirect_to child_path(@child.id)
-      else
-        render :new
-      end
+    @child = current_user.children.new(children_params)
+    if @child.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
 
   def destroy
     @child.destroy
-    redirect_to children_path
+    redirect_to user_path(current_user)
   end
 
   private

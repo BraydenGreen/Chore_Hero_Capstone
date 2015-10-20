@@ -1,17 +1,3 @@
-.container
-  %h1.center-align Edit Child
-  .row
-    = form_for @child do |f|
-      .input-field.col.s12
-        = f.label :name, class: "indigo-text"
-        = f.text_field :name
-      .input-field.col.s12
-        = f.label :password, class: "indigo-text"
-        = f.text_area :password, class: 'materialize-textarea'
-      .input-field.col.s12
-        = f.label :email, class: "indigo-text"
-        = f.text_field :email
-
-      = f.hidden_field :user_id, value: current_user.id
-
-      = f.submit 'Submit', class: 'btn indigo darken-4 white-text''
+%h1 Editing Child: #{@child.name}
+%hr
+= render ('form')

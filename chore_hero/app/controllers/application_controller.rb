@@ -16,13 +16,17 @@ class ApplicationController < ActionController::Base
   # before_filter :authenticate_child!
 
   def after_sign_in_path_for(resource)
-    user_path(resource)
+    if resource.type == 'Parent'
+      user_path(resource)
+    else
+      child_path(resource)
+    end
   end
 
     protected
 
     def configure_permitted_parameters
-        devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password) }
+        devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :type) }
         devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :current_password, :avatar) }
     end
 

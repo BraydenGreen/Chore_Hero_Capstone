@@ -12,6 +12,6 @@
         = f.label :badge_multiplier, class: "indigo-text"
         = f.text_field :badge_multiplier
 
-      = f.hidden_field. :user_id, value: current_user.id
+      = f.hidden_field :user_id, value: current_user.id
 
       = f.submit 'Submit', class: 'btn indigo darken-4 white-text'

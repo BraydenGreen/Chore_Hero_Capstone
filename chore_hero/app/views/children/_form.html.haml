@@ -1,0 +1,15 @@
+.container
+  .row
+    = form_for @child do |f|
+      .input-field.col.s12
+        = f.label :name, class: "indigo-text"
+        = f.text_field :name
+      .input-field.col.s12
+        = f.label :email, class: "indigo-text"
+        = f.text_field :email
+      - if params[:action] == 'new'
+        .input-field.col.s12
+          = f.label :password, class: "indigo-text"
+          = f.password_field :password, class: 'materialize-textarea'
+        
+      = f.submit 'Submit', class: 'btn indigo darken-4 white-text'

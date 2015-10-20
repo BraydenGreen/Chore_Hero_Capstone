@@ -3,6 +3,7 @@ class BadgesController < ApplicationController
   before_action :badge, only: [:show, :edit, :update, :destroy]
 
   def index
+    # badges should be parent specific
     @badges = Badge.all
   end
 

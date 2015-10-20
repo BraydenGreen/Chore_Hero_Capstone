@@ -2,8 +2,24 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_action :user, only: [:show]
 
-
   def show
+  end
+
+  def new
+    @child = Child.new(type: 'Child')
+  end
+
+  def create
+    binding.pry
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private

@@ -1,7 +1,7 @@
 .container
   .row
     .col.s12.center
-      %h1#bold.headline #{current_user.email}'s Homepage
+      %h1#bold.headline #{current_user.name}'s Homepage
   %hr
   .row
     .col.m4
@@ -11,11 +11,29 @@
   .row
     .col.s12
       %h3.headline Kids
-      /- current_user.children.each do |kids|
-      .col.m4
-        %h5
-        /= image_tag movie.photo.url(:medium)
+      - if current_user.children.any?
+        %table
+          %thead
+            %tr
+              %th Name
+              %th Email
+              %th Chore Count
+              %th Actions
+          %tbody
+            - current_user.children.each do |child|
+              %tr
+                %td
+                  = child.name
+                %td
+                  = child.email
+                %td
+                  = child.chores.count
+                %td
+                  %span
+                    = link_to 'Edit', edit_child_path(child)
+                  %span
+                    = link_to 'Delete', child_path(child), method: 'delete', data: {confirm: '  Really Delete?'}
+      - else
+        %h3 No Children, Please Add Some
   %hr
-
 %li= link_to "Add Child", new_child_path
-b
