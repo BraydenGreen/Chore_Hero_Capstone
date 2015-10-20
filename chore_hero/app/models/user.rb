@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
     :trackable,
     :validatable
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "60x60" }, :default_url => "/assets/images/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "60x60" }, :default_url => "missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def parent?
