@@ -14,7 +14,7 @@
           = f.text_field :xp_value
         / Dropdown Trigger
       -if current_user.children.any?
-        %a.dropdown-button.btn{"data-activates" => "dropdown1", :href => "#"} Assign Chore to Child?
+        %a.dropdown-button.btn.indigo.darken-4.white-text{"data-activates" => "dropdown1", :href => "#"} Assign Chore to Child?
         / Dropdown Structure
         %ul#dropdown1.dropdown-content
           %li
@@ -28,5 +28,5 @@
 
         /= f.submit 'Submit Chore', class: 'btn indigo darken-4 white-text'
 
-        /= link_to 'Cancel', chores_path, class: 'btn indigo darken-4 white-text'
+        = link_to 'Cancel', chores_path, class: 'btn indigo darken-4 white-text'
 - else
