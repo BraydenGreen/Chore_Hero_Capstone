@@ -1,9 +1,10 @@
-%nav
+%nav#nav
   .nav-wrapper
     %ul.left.hide-on-med-and-down
       %li= link_to "About", about_path
       %li= link_to "FAQ", faq_path
-      %li= link_to "Home", root_path
+      %li= link_to "Home", root_path  
+      %a#logo.brand-logo.center Chore Hero
     %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
       %i.material-icons menu
     %ul.right.hide-on-med-and-down
