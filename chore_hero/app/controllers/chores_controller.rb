@@ -10,6 +10,10 @@ class ChoresController < ApplicationController
   end
 
   def edit
+    @children_options = []
+    current_user.children.each do |child|
+      @children_options << [child.name, child.id]
+    end
   end
 
   def update
