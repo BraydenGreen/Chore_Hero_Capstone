@@ -1,4 +1,11 @@
 %body.center-align
+  .color.red
+    %marquee{:behavior => "scroll", :direction => "left", :scrollamount => "5"}
+      @choreheroapp Twitter Feed: 
+      = @twitter.home_timeline.first.text 
+      || 
+      @choreheroapp Twitter Feed: 
+      = @twitter.home_timeline.second.text
   .section.blue.white-text
     %h5 Come Read About The SuperCreators Of ChoreHero!
 %img.jumbotron
