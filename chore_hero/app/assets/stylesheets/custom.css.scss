@@ -6,10 +6,16 @@
 //    padding-top: 10%;
 //  }
 
+#image {
+  background-image: url(http://downloadwallpaperhd.com/wp-content/uploads/2013/02/3D-Batman-Logo.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
 
 #backdrop {
-  background-color: rgb(234, 234, 234);
+  background-color: rgba(234, 234, 234, .2);
   padding: 10px;
-  padding-bottom: 5%;
+  padding-bottom: 20%;
   border-radius: 20px;
 }

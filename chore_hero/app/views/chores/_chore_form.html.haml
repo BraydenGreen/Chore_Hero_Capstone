@@ -1,17 +1,32 @@
-.container
-  %h1.center-align
-  .row
-    = form_for @chore do |f|
-      .input-field.col.s12
-        = f.label :title, class: "indigo-text"
-        = f.text_field :title
-      .input-field.col.s12
-        = f.label :description, class: "indigo-text"
-        = f.text_area :description, class: 'materialize-textarea'
-      .input-field.col.s12
-        = f.label :xp_value, class: "indigo-text"
-        = f.text_field :xp_value
+- if current_user.parent?
+  .container
+    %h1.center-align
+    .row
+      = form_for @chore do |f|
+        .input-field.col.s12
+          = f.label :title, class: "indigo-text"
+          = f.text_field :title
+        .input-field.col.s12
+          = f.label :description, class: "indigo-text"
+          = f.text_area :description, class: 'materialize-textarea'
+        .input-field.col.s12
+          = f.label :xp_value, class: "indigo-text"
+          = f.text_field :xp_value
+        / Dropdown Trigger
+      -if current_user.children.any?
+        %a.dropdown-button.btn{"data-activates" => "dropdown1", :href => "#"} Assign Chore to Child?
+        / Dropdown Structure
+        %ul#dropdown1.dropdown-content
+          %li
+            %a{:href => "#!"} Unassigned
+          - current_user.children.each do |x|
+            %li
+              %a{:href => "#!"} #{x.name}
+            %li.divider
 
-      = f.hidden_field :user_id, value: current_user.id
+        /= f.hidden_field :user_id, value: current_user.id
 
-      = f.submit 'Submit', class: 'btn indigo darken-4 white-text'
+        /= f.submit 'Submit Chore', class: 'btn indigo darken-4 white-text'
+
+        /= link_to 'Cancel', chores_path, class: 'btn indigo darken-4 white-text'
+- else
