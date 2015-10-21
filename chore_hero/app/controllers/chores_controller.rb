@@ -1,6 +1,6 @@
 class ChoresController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
-  before_action :chore, only: [:show, :edit, :update, :destroy]
+  before_action :chore, only: [:show, :edit, :update, :destroy, :complete_chore]
 
   def index
     @chores = Chore.all
@@ -39,6 +39,12 @@ class ChoresController < ApplicationController
 
   def destroy
     @chore.destroy
+    redirect_to chores_path
+  end
+
+  def complete_chore
+    @chore.complete = true
+    @chore.save
     redirect_to chores_path
   end
 
