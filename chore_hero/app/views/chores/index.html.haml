@@ -1,7 +1,9 @@
 .container.center
   .row
     .col.s12
-      %h1.headline All Chores
+      %h1.headline Mission Log
+      %h5 Chore Sheet
+      %hr
       - if current_user.parent?
         = link_to 'Add Chore', new_chore_path, class: 'btn indigo darken-4 white-text'
         %br
