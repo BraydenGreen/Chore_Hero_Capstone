@@ -1,24 +1,41 @@
 .container.center
   .row
     .col.s12
-      %h1.headline All Chores
+      %h1.headline Chores
+    %hr
       - if current_user.parent?
         = link_to 'Add Chore', new_chore_path, class: 'btn indigo darken-4 white-text'
-        %br
-        %hr
+    %hr  
   .row
     - if @chores.any?
       - @chores.each do |chore|
-        .col.m6
-          .row
-            .col.m6
-            .col.m6.offset-m3.center-align
-              = link_to chore.title, chore_path(chore)
-              %p Description: #{chore.description}
-              %p XP Value: #{chore.xp_value}
-              - if current_user.parent?
-                = button_to 'Edit', edit_chore_path(chore), method: 'get', class: 'btn-small indigo darken-4 white-text'
-                = button_to 'Destroy', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}, class: 'btn-small indigo darken-4 white-text'
+        - if chore.complete == false
+          .col.m6
+            .row
+              .col.m6.offset-m3.center-align
+                = link_to chore.title, chore_path(chore)
+                %p Description: #{chore.description}
+                %p XP Value: #{chore.xp_value}
+                %p Mark complete? #{chore.complete}
+                - if current_user.parent?
+                  = button_to 'Mark Complete', complete_chore_path(chore), class: 'btn-small indigo darken-4 white-text'
+                  = button_to 'Edit', edit_chore_path(chore), method: 'get', class: 'btn-small indigo darken-4 white-text'
+                  = button_to 'Destroy', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}, class: 'btn-small indigo darken-4 white-text'  
+                              
     - else
       %h5 There are currently no chores.
-      -# = link_to 'Create A New Chore', new_chore_path, class: 'btn indigo darken-4 white-text'
+
+  %h3.headline Completed Chores
+  - @chores.each do |chore|
+    - if chore.complete == true
+      .col.m6
+        .row
+          .col.m6.offset-m3.center-align
+            = link_to chore.title, chore_path(chore)
+            %p Description: #{chore.description}
+            %p XP Value: #{chore.xp_value}
+            - if current_user.parent?
+              = button_to 'Edit', edit_chore_path(chore), method: 'get', class: 'btn-small indigo darken-4 white-text'
+              = button_to 'Destroy', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}, class: 'btn-small indigo darken-4 white-text'
+    /- else
+    /%h5 There are currently no completed chores.

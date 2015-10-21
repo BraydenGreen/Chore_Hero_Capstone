@@ -4,7 +4,7 @@
       %h1#bold.headline #{current_user.name}'s Homepage
   %hr
   %div.center-align
-    %a= link_to "Add Chore", new_chore_path, class: "btn indigo darken-4 white-text"
+    %a= link_to "Mission Log", chores_path, class: "btn indigo darken-4 white-text"
   .row
     .col.m4
     /= image_tag @actor.photo.url(:medium)
@@ -19,22 +19,19 @@
             %tr
               %th Chore
               %th Description
-              %th Chore Count
-              %th Actions
+              %th XP Value
+              %th Chore Due Date
+             
           %tbody
             - current_user.chores.each do |chore|
               %tr
                 %td
-                  = chore.name
+                  = chore.title
                 %td
-                  = chore.email
+                  = chore.description
                 %td
-                  = chore.count
-                %td
-                  %span
-                    = link_to 'Edit', edit_child_path(child)
-                  %span
-                    = link_to 'Delete', child_path(child), method: 'delete', data: {confirm: '  Really Delete?'}
+                  = chore.xp_value
+                  
       - else
         %h3 No Chores, Ask for some more
   %hr

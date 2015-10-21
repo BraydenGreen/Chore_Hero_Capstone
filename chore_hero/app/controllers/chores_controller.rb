@@ -1,6 +1,6 @@
 class ChoresController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
-  before_action :chore, only: [:show, :edit, :update, :destroy]
+  before_action :chore, only: [:show, :edit, :update, :destroy, :complete_chore]
 
   def index
     @chores = Chore.all
@@ -10,6 +10,10 @@ class ChoresController < ApplicationController
   end
 
   def edit
+    @children_options = []
+    current_user.children.each do |child|
+      @children_options << [child.name, child.id]
+    end
   end
 
   def update
@@ -21,6 +25,10 @@ class ChoresController < ApplicationController
   end
 
   def new
+    @children_options = []
+    current_user.children.each do |child|
+      @children_options << [child.name, child.id]
+    end
     @chore = Chore.new
   end
 
@@ -38,10 +46,16 @@ class ChoresController < ApplicationController
     redirect_to chores_path
   end
 
+  def complete_chore
+    @chore.complete = true
+    @chore.save
+    redirect_to chores_path
+  end
+
   private
 
      def chore_params
-       params.require(:chore).permit(:title, :description, :xp_value, :complete)
+       params.require(:chore).permit(:title, :description, :xp_value, :complete, :child_id)
      end
 
      def chore
