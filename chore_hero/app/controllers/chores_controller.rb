@@ -12,7 +12,7 @@ class ChoresController < ApplicationController
   def edit
     @children_options = []
     current_user.children.each do |child|
-      @children_options << [child.name, child.id]
+    @children_options << [child.name, child.id]
     end
   end
 
@@ -27,7 +27,7 @@ class ChoresController < ApplicationController
   def new
     @children_options = []
     current_user.children.each do |child|
-      @children_options << [child.name, child.id]
+    @children_options << [child.name, child.id]
     end
     @chore = Chore.new
   end

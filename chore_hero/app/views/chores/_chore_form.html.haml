@@ -17,9 +17,7 @@
           = f.select(:child_id, options_for_select(@children_options))
           %label Select Child
 
-        %br
-        %br
-          = link_to 'Cancel', chores_path, class: 'btn indigo darken-4 white-text'
-          = f.submit 'Submit Chore', class: 'btn indigo darken-4 white-text'
+        = link_to 'Cancel', chores_path, class: 'btn indigo darken-4 white-text'
+        = f.submit 'Submit Chore', class: 'btn indigo darken-4 white-text'
 
 
