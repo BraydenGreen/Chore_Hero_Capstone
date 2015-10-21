@@ -1,37 +1,38 @@
+<div id="image">
 <div id="backdrop" class="container">
 <h2 class="center-align">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+  <div class="input-field">
+    <%= f.label :name, class: 'white-text' %><br />
+    <%= f.text_field :name, autofocus: true, class: 'white-text' %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+  <div class="input-field">
+    <%= f.label :email, class: 'white-text' %><br />
+    <%= f.email_field :email, class: 'white-text' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="input-field">
+    <%= f.label :password, class: 'white-text' %>
     <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em class="hide">(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class: 'white-text' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="input-field">
+    <%= f.label :password_confirmation, class: 'white-text' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'white-text' %>
   </div>
 
   <hr />
 
   <div class="field">
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
+    <%= f.label :avatar, class: 'white-text' %>
+    <%= f.file_field :avatar, class: 'white-text' %>
   </div>
 
   <hr />
@@ -43,4 +44,4 @@
 
 <%= render "devise/shared/links" %>
 </div>
-<!-- <div class="padding-bottom"> -->
+</div>

@@ -1,25 +1,27 @@
 .container.center
-  #backdrop
-    .row
-      .col.s12
-        %h1.headline All badges
-      %hr
-    .row
-      - if !current_user.parent?
-        - @badges = current_user.badges
-      - if @badges.any?
-        - @badges.each do |badge|
-          .col.m6
-            .row
-              .col.m6
-              .col.m6.left-align
-                = link_to badge.title, badge_path(badge)
-                %p Description: #{badge.description}
-                %p Badge Rank: #{badge.badge_multiplier}
-                - if current_user.parent?
-                  = button_to 'Edit', edit_badge_path(badge), method: 'get'
-                  = button_to 'Destroy', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}
-      - else
-        %h5 There are currently no badges.
-        - if current_user.parent?
-          = link_to 'Create a new badge', new_badge_path, class: 'btn indigo darken-4 white-text'
+  .row
+    .col.s12
+      %h1.headline All badges
+      - if current_user.parent?
+        = link_to 'Add Badge', new_badge_path, class: 'btn indigo darken-4 white-text'
+        %br
+        %hr
+  .row
+    - if !current_user.parent?
+      - @badges = current_user.badges
+    - if @badges.any?
+      - @badges.each do |badge|
+        .col.m6
+          .row
+            .col.m6
+            .col.m6.left-align
+              = link_to badge.title, badge_path(badge)
+              %p Description: #{badge.description}
+              %p Badge Rank: #{badge.badge_multiplier}
+              - if current_user.parent?
+                = button_to 'Edit', edit_badge_path(badge), method: 'get', class: 'btn-small indigo darken-4 white-text'
+                = button_to 'Destroy', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, class: 'btn-small indigo darken-4 white-text'
+    - else
+      %h5 There are currently no badges.
+      - if current_user.parent?
+        = link_to 'Create a new badge', new_badge_path, class: 'btn indigo darken-4 white-text'
