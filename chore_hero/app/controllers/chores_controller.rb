@@ -21,6 +21,10 @@ class ChoresController < ApplicationController
   end
 
   def new
+    @children_options = []
+    current_user.children.each do |child|
+      @children_options << [child.name, child.id]
+    end
     @chore = Chore.new
   end
 
@@ -41,7 +45,7 @@ class ChoresController < ApplicationController
   private
 
      def chore_params
-       params.require(:chore).permit(:title, :description, :xp_value, :complete)
+       params.require(:chore).permit(:title, :description, :xp_value, :complete, :child_id)
      end
 
      def chore

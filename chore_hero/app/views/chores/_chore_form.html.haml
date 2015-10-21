@@ -1,45 +1,26 @@
 - if current_user.parent?
-  .container
+  .container.center-align
+    %hr
     %h1.center-align
     .row
       = form_for @chore do |f|
         .input-field.col.s12
           = f.label :title, class: "indigo-text"
-          = f.text_field :title
+          = f.text_field :title, class: 'materialize-textarea'
         .input-field.col.s12
           = f.label :description, class: "indigo-text"
           = f.text_area :description, class: 'materialize-textarea'
         .input-field.col.s12
           = f.label :xp_value, class: "indigo-text"
-          = f.text_field :xp_value
-        %select{:name => "cars"}
-          %option{:value => "volvo"} Volvo
-          %option{:value => "saab"} Saab
-          %option{:value => "fiat"} Fiat
-          %option{:value => "audi"} Audi
-        / -if current_user.children.any?
-        /   - current_user.children.each do |x|
-        /     %select{:form => '':name => "chore-assign"}
-        /     %option{:value => "Mission Log"}  
-        /     %option{:value => "x.user_id"} #{x.name}
-            
-        / -else
-        /   %select{:name => "chore-assign"}
-        /     %option{:value => "Mission Log"}
+          = f.text_field :xp_value, class: 'materialize-textarea'
+        .input-field.col.s12
+          = f.select(:child_id, options_for_select(@children_options))
+          %label Select Child
 
-        / Dropdown Trigger
-        %a.dropdown-button.btn{"data-activates" => "dropdown1", :href => "#"} Assign Chore to Child?
-        / Dropdown Structure
-        %ul#dropdown1.dropdown-content
-          %li
-            %a{:href => "#!"} Unassigned
-          - current_user.children.each do |x|
-            %li
-              %a{:href => "#!"} #{x.name}
-            %li.divider
+     
+        = f.hidden_field :user_id, value: current_user.id
+        %br
+        %br
+          = link_to 'Cancel', chores_path, class: 'btn indigo darken-4 white-text'
+          = f.submit 'Submit Chore', class: 'btn indigo darken-4 white-text'
 
-        /= f.hidden_field :user_id, value: current_user.id
-
-        /= f.submit 'Submit Chore', class: 'btn indigo darken-4 white-text'
-
-        /= link_to 'Cancel', chores_path, class: 'btn indigo darken-4 white-text'
