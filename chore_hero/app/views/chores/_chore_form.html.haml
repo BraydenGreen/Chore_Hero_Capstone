@@ -4,18 +4,19 @@
     %h1.center-align
     .row
       = form_for @chore do |f|
-        .input-field.col.s12
+        .input-field.col.s6
           = f.label :title, class: "indigo-text"
           = f.text_field :title, class: 'materialize-textarea'
+        .input-field.col.s6
+          = f.select(:child_id, options_for_select(@children_options))
+          %label Select Child
         .input-field.col.s12
           = f.label :description, class: "indigo-text"
           = f.text_area :description, class: 'materialize-textarea'
         .input-field.col.s12
           = f.label :xp_value, class: "indigo-text"
           = f.text_field :xp_value, class: 'materialize-textarea'
-        .input-field.col.s12
-          = f.select(:child_id, options_for_select(@children_options))
-          %label Select Child
+        
 
 
 
