@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .user-show-image
   .container
     .row
@@ -8,34 +7,17 @@
         .col.m8
           %h1#bold.headline #{current_user.name}'s Homepage
     %hr
-    %div.center-align
-=======
-.container
-  .row
-    .col.s12.center
-      .col.m4
-        = image_tag current_user.avatar.url(:medium)
-      .col.m8
-        %h1#bold.headline #{current_user.name}'s Homepage
-  %hr
-  %div.center-align.center-align
-    .row
-      .col.s12
-        %h3.headline Kids Info
-        %a= link_to "Add Child", new_child_path, class: "btn indigo darken-4 white-text"
-        %a= link_to 'Add Badge', new_badge_path, class: 'btn indigo darken-4 white-text'
-        %a= link_to 'Add Chore', new_chore_path, class: 'btn indigo darken-4 white-text'
-        %hr
-      - if current_user.children.any?
-        %table
-          %thead
-            %tr
-              %th Name
-              %th Email
-              %th Chore Count
-              %th Actions
-          %tbody
-            - current_user.children.each do |child|
+    %div.center-align.center-align
+      .row
+        .col.s12
+          %h3.headline Kids Info
+          %a= link_to "Add Child", new_child_path, class: "btn indigo darken-4 white-text"
+          %a= link_to 'Add Badge', new_badge_path, class: 'btn indigo darken-4 white-text'
+          %a= link_to 'Add Chore', new_chore_path, class: 'btn indigo darken-4 white-text'
+          %hr
+        - if current_user.children.any?
+          %table
+            %thead
               %tr
                 %th Name
                 %th Email
@@ -44,18 +26,25 @@
             %tbody
               - current_user.children.each do |child|
                 %tr
-                  %td
-                    = child.name
-                  %td
-                    = child.email
-                  %td
-                    = child.chores.count
-                  %td
-                    %span
-                      = link_to 'Edit', edit_child_path(child)
-                    %span
-                      = link_to 'Delete', child_path(child), method: 'delete', data: {confirm: '  Really Delete?'}
+                  %th Name
+                  %th Email
+                  %th Chore Count
+                  %th Actions
+              %tbody
+                - current_user.children.each do |child|
+                  %tr
+                    %td
+                      = child.name
+                    %td
+                      = child.email
+                    %td
+                      = child.chores.count
+                    %td
+                      %span
+                        = link_to 'Edit', edit_child_path(child)
+                      %span
+                        = link_to 'Delete', child_path(child), method: 'delete', data: {confirm: '  Really Delete?'}
         - else
           %h3 No Children, Please Add Some
-  %hr
+    %hr
   
