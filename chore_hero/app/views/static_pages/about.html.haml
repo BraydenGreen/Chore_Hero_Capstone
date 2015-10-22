@@ -81,5 +81,5 @@
       @choreheroapp Twitter Feed: 
       = @twitter.home_timeline.second.text
   -rescue Twitter::Error::TooManyRequests => error
-    = "Twitter feed is offline. Please wait #{error.rate_limit.reset_in} more seconds"
+    
 
