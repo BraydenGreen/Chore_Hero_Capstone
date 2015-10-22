@@ -20,30 +20,20 @@
             %thead
               %tr
                 %th Name
-                %th Email
                 %th Chore Count
                 %th Actions
             %tbody
               - current_user.children.each do |child|
                 %tr
-                  %th Name
-                  %th Email
-                  %th Chore Count
-                  %th Actions
-              %tbody
-                - current_user.children.each do |child|
-                  %tr
-                    %td
-                      = child.name
-                    %td
-                      = child.email
-                    %td
-                      = child.chores.count
-                    %td
-                      %span
-                        = link_to 'Edit', edit_child_path(child)
-                      %span
-                        = link_to 'Delete', child_path(child), method: 'delete', data: {confirm: '  Really Delete?'}
+                  %td
+                    = child.name
+                  %td
+                    = child.chores.count
+                  %td
+                    %span
+                      = link_to 'Edit', edit_child_path(child)
+                    %span
+                      = link_to 'Delete', child_path(child), method: 'delete', data: {confirm: '  Really Delete?'}
         - else
           %h3 No Children, Please Add Some
     %hr
