@@ -21,12 +21,11 @@
                   = button_to 'Mark Complete', complete_chore_path(chore), class: 'btn-small indigo darken-4 white-text'
                   = button_to 'Edit', edit_chore_path(chore), method: 'get', class: 'btn-small indigo darken-4 white-text'
                   = button_to 'Destroy', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}, class: 'btn-small indigo darken-4 white-text'
-
     - else
       %h5 There are currently no chores.
 
-    %h3.headline Completed Chores
-    %hr
+  %h3.headline Completed Chores
+  %hr
     - @chores.each do |chore|
       - if chore.complete == true
         .col.m6
