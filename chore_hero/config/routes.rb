@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   get '/faq', to: 'static_pages#faq', as: 'faq'
   get '/about', to: 'static_pages#about', as: 'about'
+  get '/charts', to: 'static_pages#charts', as: 'charts'
 end

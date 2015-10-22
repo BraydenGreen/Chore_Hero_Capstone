@@ -1,18 +1,17 @@
 .container
   .row
     .col.s12.center
-      %h1#bold.headline #{current_user.name}'s Homepage
+      .col.m4
+        = image_tag current_user.avatar.url(:medium)
+      .col.m8
+        %h1#bold.headline #{current_user.name}'s Homepage
   %hr
   %div.center-align
-    %a= link_to "Add Child", new_child_path, class: "btn indigo darken-4 white-text"
-  .row
-    .col.m4
-    /= image_tag @actor.photo.url(:medium)
-    .col.m8
-  %br
   .row
     .col.s12
-      %h3.headline Kids
+      %h3.headline Kids Info
+      %a= link_to "Add Child", new_child_path, class: "btn indigo darken-4 white-text"
+      %hr
       - if current_user.children.any?
         %table
           %thead
