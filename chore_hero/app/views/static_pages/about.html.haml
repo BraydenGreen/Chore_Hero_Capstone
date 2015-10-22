@@ -75,11 +75,12 @@
 .color.red
   - begin
     %marquee{:behavior => "scroll", :direction => "left", :scrollamount => "5"}
-      @choreheroapp Twitter Feed: 
-      = @twitter.home_timeline.first.text 
-      || 
-      @choreheroapp Twitter Feed: 
-      = @twitter.home_timeline.second.text
+      %h6
+        @choreheroapp Twitter Feed: 
+        = @twitter.home_timeline.first.text 
+        || 
+        @choreheroapp Twitter Feed: 
+        = @twitter.home_timeline.second.text
   -rescue Twitter::Error::TooManyRequests => error
     
 
