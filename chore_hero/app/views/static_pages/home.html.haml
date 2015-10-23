@@ -29,9 +29,15 @@
   .parallax-container
     .parallax
       %img{:src => "http://primetime.unrealitytv.co.uk/wp-content/uploads/2015/02/who-do-you-really-think-should-play-spider-man.jpeg"}
-  / .section.white.black-text
-  /   .row
-  /     %h5 Jesus
+  .section.white.black-text
+    .row
+      - unless user_signed_in?
+        %h3.center-align.headline
+          What are you waiting for JOIN NOW?
+        .center-align
+          %a.waves-effect.waves-light.btn-large.red{href: 'users/sign_up'}
+            Create account today!
+
   / .parallax-container
   /   .parallax
   /     %img{:src => "http://www.watchmojo.com/uploads/blipthumbs/Fi-M-Wonder-Woman-480i60_480x270.jpg"}
