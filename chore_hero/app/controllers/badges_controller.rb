@@ -42,7 +42,7 @@ class BadgesController < ApplicationController
   private
 
      def badge_params
-       params.require(:badge).permit(:title, :description, :badge_multiplier)
+       params.require(:badge).permit(:title, :description, :badge_multiplier, :avatar)
      end
 
      def badge
