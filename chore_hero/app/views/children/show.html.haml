@@ -2,6 +2,7 @@
   .row
     .col.s12.center
       %h1#bold.headline #{current_user.name}'s Homepage
+      %h3.headline XP Total: #{current_user.points_total}
   %hr
   %div.center-align
     %a= link_to "Mission Log", chores_path, class: "btn indigo darken-4 white-text"
@@ -12,7 +13,7 @@
   %br
   .row
     .col.s12
-      %h3.headline Kids
+      %h3.headline Chores
       - if current_user.chores.any?
         %table
           %thead
