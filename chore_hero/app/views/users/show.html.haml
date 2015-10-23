@@ -5,7 +5,7 @@
         .col.m4
           = image_tag current_user.avatar.url(:medium)
         .col.m8
-          %h1#bold.headline #{current_user.name}'s Homepage
+          %h3#bold.headline #{current_user.name}'s Homepage
     %hr
     %div.center-align.center-align
       .row
@@ -26,7 +26,7 @@
               - current_user.children.each do |child|
                 %tr
                   %td
-                    = child.name
+                    = link_to child.name, child_path(child)
                   %td
                     = child.chores.count
                   %td
