@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021205041) do
+ActiveRecord::Schema.define(version: 20151023202313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,12 @@ ActiveRecord::Schema.define(version: 20151021205041) do
     t.string   "description"
     t.float    "badge_multiplier"
     t.integer  "child_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "children", force: :cascade do |t|
@@ -31,19 +35,24 @@ ActiveRecord::Schema.define(version: 20151021205041) do
     t.string   "email"
     t.string   "password"
     t.string   "supername"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
+    t.float    "total_points", default: 0.0
   end
 
   create_table "chores", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.float    "xp_value"
-    t.boolean  "complete",    default: false
+    t.boolean  "complete",            default: false
     t.integer  "child_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -57,12 +66,12 @@ ActiveRecord::Schema.define(version: 20151021205041) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",  null: false
+    t.string   "encrypted_password",     default: "",  null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,   null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -76,6 +85,7 @@ ActiveRecord::Schema.define(version: 20151021205041) do
     t.string   "type"
     t.integer  "parent_id"
     t.string   "name"
+    t.float    "points_total",           default: 0.0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
