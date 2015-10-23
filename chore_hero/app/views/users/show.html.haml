@@ -21,6 +21,7 @@
               %tr
                 %th Name
                 %th Chore Count
+                %th Total Points
                 %th Actions
             %tbody
               - current_user.children.each do |child|
@@ -29,6 +30,8 @@
                     = link_to child.name, child_path(child)
                   %td
                     = child.chores.count
+                  %td
+                    = child.points_total
                   %td
                     %span
                       = link_to 'Edit', edit_child_path(child)

@@ -6,6 +6,7 @@
           = image_tag current_user.avatar.url(:medium)
         .col.m8
           %h3#bold.headline #{current_user.name}'s Homepage
+          %h3.headline XP Total: #{current_user.points_total}
     %hr
     .row
     %br
@@ -23,7 +24,7 @@
                 %th Description
                 %th XP Value
                 %th Chore Due Date
-               
+             
             %tbody
               - current_user.chores.each do |chore|
                 %tr
