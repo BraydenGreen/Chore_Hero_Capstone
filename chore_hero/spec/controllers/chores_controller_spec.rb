@@ -9,12 +9,12 @@ RSpec.describe ChoresController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
-    end
-  end
+  # describe "GET #new" do
+  #   it "returns http success" do
+  #     get :new
+  #     expect(response).to have_http_status(:success)
+  #   end
+  # end
 
   describe "POST #create" do
     it "creates a new chore" do
@@ -28,13 +28,13 @@ RSpec.describe ChoresController, type: :controller do
     end
   end
 
-  describe "GET #edit" do
-    it "returns edited chore" do
-      chore = Chore.create(title: 'Sweep')
-      get :edit, {id: chore.id}
-      expect(assigns(:chore).title).to eq('Sweep')
-    end
-  end
+  # describe "GET #edit" do
+  #   it "returns edited chore" do
+  #     chore = Chore.create(title: 'Sweep')
+  #     get :edit, {id: chore.id}
+  #     expect(assigns(:chore).title).to eq('Sweep')
+  #   end
+  # end
 
   describe "PUT #update" do 
     it 'updates a chore' do 
