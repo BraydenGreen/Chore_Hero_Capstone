@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023202313) do
+ActiveRecord::Schema.define(version: 20151023222522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20151023202313) do
     t.string   "type"
     t.integer  "parent_id"
     t.string   "name"
+    t.integer  "age"
     t.float    "points_total",           default: 0.0
   end
 

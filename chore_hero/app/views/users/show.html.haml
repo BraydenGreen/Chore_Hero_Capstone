@@ -25,7 +25,7 @@
             - current_user.children.each do |child|
               %tr
                 %td
-                  = child.name
+                  = link_to child.name, child_path(child)
                 %td
                   = child.chores.count
                 %td
