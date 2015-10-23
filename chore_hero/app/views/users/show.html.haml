@@ -21,6 +21,7 @@
               %tr
                 %th Name
                 %th Chore Count
+                %th Total Points
                 %th Actions
             %tbody
               - current_user.children.each do |child|
@@ -30,10 +31,12 @@
                   %td
                     = child.chores.count
                   %td
+                    = child.points_total
+                  %td
                     %span
                       = link_to 'Edit', edit_child_path(child)
                     %span
                       = link_to 'Delete', child_path(child), method: 'delete', data: {confirm: '  Really Delete?'}
-        - else
-          %h3 No Children, Please Add Some
+      - else
+        %h3 No Children, Please Add Some
   %hr
