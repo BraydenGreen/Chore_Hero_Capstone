@@ -31,10 +31,10 @@
           %li= link_to 'Chores', chores_path, class: "white-text"
           %li= link_to "Badges", badges_path, class: "white-text"
           %li= link_to 'Log Out',destroy_user_session_path, method: :delete, class: "white-text"
-        - elsif current_user.type == "Child"
+        - else current_user.type == "Child"
           %li= link_to 'Your Profile', child_path(current_user), class: "white-text"
           %li= link_to 'Chores', chores_path, class: "white-text"
           %li= link_to 'Log Out',destroy_user_session_path, method: :delete, class: "white-text"
-        - else
-          %li= link_to 'Log In', new_user_session_path, class: "white-text"
-          %li= link_to 'Sign Up', new_user_registration_path, class: "white-text"
+      - else
+        %li= link_to 'Log In', new_user_session_path, class: "white-text"
+        %li= link_to 'Sign Up', new_user_registration_path, class: "white-text"
