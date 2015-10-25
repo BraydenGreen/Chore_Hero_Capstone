@@ -8,7 +8,7 @@
             %i.material-icons.large stars
           .col.s5
             %h5
-              Chore Hero is an app designed to motivate your kids to do chores with a easy to use web app.
+              Motivate your kids to do chores!
           .col.s1
             %i.material-icons.large perm_identity
           .col.s5
@@ -19,7 +19,7 @@
             %i.material-icons.large home
           .col.s5
             %h5
-              Keep a cleaner home and family!
+              Cleaner Home, Happier Family!
           .col.s1
             %i.material-icons.large grade
           .col.s5
@@ -35,8 +35,10 @@
         %h3.center-align.headline
           What are you waiting for JOIN NOW?
         .center-align
-          %a.waves-effect.waves-light.btn-large.red{href: 'users/sign_up'}
+          %a.waves-effect.waves-light.btn-large.red.darken-4{href: 'users/sign_up'}
             Create account today!
+      - if user_signed_in?
+        %h3.center-align.headline Thank you for being a valued customer. Have a super day!
 
   / .parallax-container
   /   .parallax
