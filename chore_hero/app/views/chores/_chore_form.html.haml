@@ -2,7 +2,7 @@
   .container.center-align
     %hr
     %h1.center-align
-    .row
+    .row.headline
       = form_for @chore do |f|
         .input-field.col.s6
           = f.label :title, class: "indigo-text"
@@ -24,6 +24,6 @@
 
 
 
-          = link_to 'Cancel', chores_path, class: 'btn red darken-4 white-text'
+          = link_to 'Cancel', user_path(current_user), class: 'btn red darken-4 white-text'
           = f.submit 'Submit Chore', class: 'btn red darken-4 white-text'
 

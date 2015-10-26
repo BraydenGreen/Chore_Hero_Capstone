@@ -1,4 +1,4 @@
-.container
+.container.headline
   %h1.center-align
   .row
     = form_for @badge do |f|
@@ -18,4 +18,4 @@
       = f.hidden_field :user_id, value: current_user.id
 
       = f.submit 'Submit', class: 'btn red darken-4 white-text'
-      = link_to 'Cancel', badges_path, class: 'btn red darken-4 white-text'
+      = link_to 'Cancel', user_path(current_user), class: 'btn red darken-4 white-text'

@@ -1,9 +1,10 @@
-.container.center
+.container.center-align.headline
   .row
     .col.s12
       %h1.headline All badges
       - if current_user.parent?
         = link_to 'Add Badge', new_badge_path, class: 'btn red darken-4 white-text'
+        = link_to 'Profile', user_path(current_user), class: 'btn red darken-4 white-text'
         %br
         %hr
   .row

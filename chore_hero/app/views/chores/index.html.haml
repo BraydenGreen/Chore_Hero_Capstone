@@ -1,10 +1,12 @@
-.container.center
+.container.center-align.headline
   .row
     .col.s12
-      %h1.headline Chores
-    %hr
+      %h1 Chores
       - if current_user.parent?
         = link_to 'Add Chore', new_chore_path, class: 'btn red darken-4 white-text'
+        = link_to 'Profile', user_path(current_user), class: 'btn red darken-4 white-text'
+      %br
+      %br
     %hr
   .row
     - if @chores.any?
@@ -28,7 +30,11 @@
       %h5 There are currently no chores.
   .row
     .col.s12
-      %h3.headline Completed Chores
+      %br
+      %br
+      %br
+      %br
+      %h3 Completed Chores
       %hr
         - @chores.each do |chore|
           - if chore.complete == true

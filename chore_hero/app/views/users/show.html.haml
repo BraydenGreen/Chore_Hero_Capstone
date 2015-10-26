@@ -1,4 +1,4 @@
-.container
+.container.headline
   .row
     .col.s12.center
       .col.m4
@@ -9,6 +9,8 @@
   %div.center-align
     .row
       .col.s12
+        %br
+        %br
         %h3.headline Kids Info
         %a= link_to "Add Child", new_child_path, class: "btn red darken-4 white-text"
         %a= link_to 'Add Badge', new_badge_path, class: 'btn red darken-4 white-text'
@@ -18,20 +20,24 @@
         %table
           %thead
             %tr
-              %th Name
-              %th Chore Count
-              %th Actions
+              %th.center-align Name
+              %th.center-align Chore Count
+              %th.center-align Actions
           %tbody
             - current_user.children.each do |child|
               %tr
-                %td
+                %td.center-align
                   = link_to child.name, child_path(child)
-                %td
+                %td.center-align
                   = child.chores.count
-                %td
+                %td.center-align
                   %span
                     = link_to 'Edit', edit_child_path(child)
                   %span
+                    |
                     = link_to 'Delete', child_path(child), method: 'delete', data: {confirm: '  Really Delete?'}
       - else
         %h3 No Children, Please Add Some
+    %br
+    %br
+    %br

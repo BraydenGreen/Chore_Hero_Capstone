@@ -1,13 +1,13 @@
 %nav#nav
   .nav-wrapper
-    %ul.left.hide-on-med-and-down
+    %ul.left.hide-on-med-and-down.headline
       %li= link_to "About", about_path
       %li= link_to "FAQ", faq_path
       %li= link_to "Home", root_path  
-      %a#logo.brand-logo.center Chore Hero
+      %a.headline#logo.brand-logo.center Chore Hero
     %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
       %i.material-icons menu
-    %ul.right.hide-on-med-and-down
+    %ul.right.hide-on-med-and-down.headline
       %li
         - if user_signed_in?
           %li= image_tag(current_user.avatar.url(:thumb))
@@ -21,7 +21,7 @@
         - else
           %li= link_to 'Log In', new_user_session_path
           %li= link_to 'Sign Up', new_user_registration_path
-    %ul#mobile-demo.side-nav.indigo.darken-4.left-align
+    %ul#mobile-demo.side-nav.indigo.darken-4.left-align.headline
       %li= link_to 'Home', root_path, class: "white-text"
       %li= link_to 'FAQ', faq_path, class: "white-text"
       %li= link_to "About", about_path, class: "white-text"
