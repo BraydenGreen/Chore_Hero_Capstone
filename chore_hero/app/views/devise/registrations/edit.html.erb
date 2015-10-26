@@ -1,18 +1,16 @@
-<div id="image">
-  <div id="backdrop" class="container">
-<!-- <div class="body"> -->
-<h2 class="center-align white-text">Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container center-align headline">
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+  <div class="container"
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, class: "center-align indigo-text" %>
 
   <div class="field">
-    <%= f.label :name, class: 'white-text' %><br />
-    <%= f.text_field :name, autofocus: true, class: 'white-text' %>
-
-  <div class="field">
-    <%= f.label :email, class: 'white-text' %><br />
-    <%= f.email_field :email, class: 'white-text' %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, class: "center-align indigo-text"%>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -20,38 +18,35 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password, class: 'white-text' %> <i class="white-text">(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off", class: 'white-text' %>
+    <%= f.label :password %> <i class="grey-text">(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off", class: "center-align indigo-text" %>
   </div>
 
 
   <div class="field">
-    <%= f.label :current_password, class: 'white-text' %> <i class="white-text">(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off", class: 'white-text' %>
+    <%= f.label :current_password %> <i class="grey-text">(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off", class: "center-align indigo-text" %>
   </div>
-
-  <hr />
 
   <div class="field">
-    <%= f.label :avatar, class: 'white-text' %>
-    <%= f.file_field :avatar, class: 'white-text' %>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar, class: "indigo-text" %>
   </div>
+</div>
 
-  <hr />
   <br />
 
   <div class="actions">
-    <%= f.submit "Update", class: 'btn-small red darken-4 white-text' %>
-    |
-    <%= button_to "Back", :back, class: 'btn-small red darken-4 white-text' %>
+    <%= f.submit "Update", class: 'btn red darken-4 white-text' %>
+
+    <%= button_to "Back", user_path(current_user), class: 'btn red darken-4 white-text' %>
   </div>
 <% end %>
 
-<h3 class="white-text">Cancel my account</h3>
+<hr>
+<h6 class="indigo-text">Cancel my account</h6>
 
-<p class="white-text">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn-small red darken-4 white-text' %></p>
-
+ <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn red darken-4 white-text' %></p>
 </div>
 </div>
-</div>
-</div>
+<br>

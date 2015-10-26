@@ -8,5 +8,17 @@ class Chore < ActiveRecord::Base
     :bucket  => ENV['AWS_BUCKET']
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
+  def self.assigned(user_id)
+    user = User.find(user_id)
+    if user.parent?
+      assigned = []
+      user.children.each do |child|
+        assigned << {name: child.name, count: child.chores.count} 
+      end
+      assigned
+    end
+  end
+
 end
 

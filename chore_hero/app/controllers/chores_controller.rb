@@ -2,6 +2,10 @@ class ChoresController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_action :chore, only: [:show, :edit, :update, :destroy, :complete_chore]
 
+  def assigned
+    render json: { records: Chore.assigned(current_user) }  
+  end
+
   def index
     @chores = Chore.all
   end
@@ -46,10 +50,6 @@ class ChoresController < ApplicationController
     redirect_to chores_path
   end
 
-  # def self.assigned
-  #   @chores = Chore.all
-  #   @chores.count(child_id)
-  # end
 
   # def total_points
   #   @chore.child.points_total = @chore.xp_value + @chore.child.points_total
