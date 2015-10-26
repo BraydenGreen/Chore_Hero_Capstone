@@ -1,9 +1,9 @@
 .container.center-align.headline
   .row
     .col.s12
-      %h1.headline All badges
+      %h1.headline All Rewards
       - if current_user.parent?
-        = link_to 'Add Badge', new_badge_path, class: 'btn red darken-4 white-text'
+        = link_to 'Add Rewards', new_badge_path, class: 'btn red darken-4 white-text'
         = link_to 'Profile', user_path(current_user), class: 'btn red darken-4 white-text'
         %br
         %hr
@@ -23,6 +23,6 @@
                 = button_to 'Edit', edit_badge_path(badge), method: 'get', class: 'btn-small red darken-4 white-text'
                 = button_to 'Destroy', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, class: 'btn-small red darken-4 white-text'
     - else
-      %h5 There are currently no badges.
+      %h5 There are currently no rewards.
       -# - if current_user.parent?
       -#   = link_to 'Create a new badge', new_badge_path, class: 'btn indigo darken-4 white-text'

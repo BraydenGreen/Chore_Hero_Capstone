@@ -8,14 +8,12 @@
       .input-field.col.s12
         = f.label :description, class: "indigo-text"
         = f.text_area :description, class: 'materialize-textarea'
-      .input-field.col.s12
-        = f.label :badge_multiplier, class: "indigo-text"
-        = f.text_field :badge_multiplier
       .field.col.s12
         = f.label :avatar 
         = f.file_field :avatar
+        %br
+        %br
 
       = f.hidden_field :user_id, value: current_user.id
-
       = f.submit 'Submit', class: 'btn red darken-4 white-text'
       = link_to 'Cancel', user_path(current_user), class: 'btn red darken-4 white-text'
