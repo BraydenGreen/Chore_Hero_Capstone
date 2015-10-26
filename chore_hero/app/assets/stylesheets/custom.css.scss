@@ -60,3 +60,17 @@ background-size: cover;
   background-color: white;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.oh {
+  overflow: hidden;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  // clear: both;
+}
