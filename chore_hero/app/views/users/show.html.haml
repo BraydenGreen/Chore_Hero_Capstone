@@ -2,9 +2,10 @@
   .row
     .col.s12.center
       .col.m4
+      %br
+      %br
         = image_tag current_user.avatar.url(:medium)
-      .col.m8
-        %h1#bold.headline #{current_user.name}'s Homepage
+        %h1#bold.headline.center-align #{current_user.name}'s Homepage
   %hr
   %div.center-align
     .row
