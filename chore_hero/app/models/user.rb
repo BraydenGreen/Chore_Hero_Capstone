@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, 
     :styles => { :medium => "300x300>", 
-    :thumb => "60x60" }, 
+    :thumb => "90x90" }, 
     :default_url => "missing.png",
     :storage => :s3,
     :bucket  => ENV['AWS_BUCKET']
