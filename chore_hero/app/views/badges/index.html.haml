@@ -14,7 +14,7 @@
         .col.m6
           .row
             .col.m6
-              = image_tag badge.avatar.url(:medium), width: '150', height: '150'
+              = image_tag badge.avatar.url(:medium), width: '200', height: '200'
             .col.m6.left-align
               = link_to badge.title, badge_path(badge)
               %p Description: #{badge.description}
@@ -23,3 +23,5 @@
               - if current_user.parent?
                 = button_to 'Edit', edit_badge_path(badge), method: 'get', class: 'btn-small red darken-4 white-text'
                 = button_to 'Delete', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, class: 'btn-small red darken-4 white-text'
+            %br
+            %br
