@@ -14,3 +14,5 @@
         = @chore.description
       /- if @chore.child_id == current_child.id
       /%p Mark Chore Complete? (If shows then enter complete chore logic here)
+.center-align.headline        
+  = link_to 'Profile', user_path(current_user), class: 'btn red darken-4 white-text'

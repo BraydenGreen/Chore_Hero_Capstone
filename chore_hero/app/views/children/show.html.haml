@@ -56,11 +56,10 @@
         %br
         %hr
         - if @child.chores.any?
-          %table
+          %table.col.s12
             %thead
               %tr
                 %th.center-align Chore
-                %th.center-align Description
                 %th.center-align XP Value
                 %th.center-align Action
                
@@ -69,8 +68,6 @@
                 %tr
                   %td.center-align
                     = chore.title
-                  %td.center-align
-                    = chore.description 
                   %td.center-align
                     = chore.xp_value
                   %td.center-align
@@ -83,10 +80,7 @@
           %h3 No Chores assigned
     %br
     %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
+  
+
+  
   
