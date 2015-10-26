@@ -6,6 +6,7 @@
       %br
         = image_tag current_user.avatar.url(:medium)
         %h1#bold.headline.center-align #{current_user.name}'s Homepage
+        = link_to 'Edit Your Profile', edit_user_registration_path, class: "btn red darken-4 white-text"
   %hr
   %div.center-align
     .row
