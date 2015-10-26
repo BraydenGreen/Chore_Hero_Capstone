@@ -12,9 +12,11 @@
     %br
     .row
       .col.s12
-        %h3.headline Chores
-        .col.s12
-          %a= link_to "Go Get Chores in the Mission Log", chores_path, class: "btn indigo darken-4 white-text"
+        %h3.headline.center-align Chores
+        .col.s12.center-align
+          %a= link_to "Go Get Chores in the Mission Log", chores_path, class: "btn red darken-4 white-text"
+          %br
+          %br
         %hr
         - if current_user.chores.any?
           %table
@@ -24,7 +26,7 @@
                 %th Description
                 %th XP Value
                 %th Chore Due Date
-             
+
             %tbody
               - current_user.chores.each do |chore|
                 %tr
@@ -34,9 +36,9 @@
                     = chore.description
                   %td
                     = chore.xp_value
-                    
+
         - else
-          %h3 No Chores, Ask for some more
+          %h3.center-align No Chores, Ask for some more
     %hr
 
   / This is the Parent's view of the Child Showpage, when logged in as a parent
@@ -49,7 +51,7 @@
     %br
     .row.headline
       .col.s12
-        %a= link_to 'Add Chore', new_chore_path, class: 'btn red darken-4 white-text' 
+        %a= link_to 'Add Chore', new_chore_path, class: 'btn red darken-4 white-text'
         %a= link_to 'Add Badge', new_badge_path, class: 'btn red darken-4 white-text'
         %br
         %br
@@ -62,12 +64,14 @@
                 %th.center-align Chore
                 %th.center-align XP Value
                 %th.center-align Action
-               
+
             %tbody
               - @child.chores.each do |chore|
                 %tr
                   %td.center-align
                     = chore.title
+                  / %td.center-align
+                  /   = chore.description
                   %td.center-align
                     = chore.xp_value
                   %td.center-align
@@ -80,7 +84,8 @@
           %h3 No Chores assigned
     %br
     %br
-  
+    %br
+    %br
+    %br
+    %br
 
-  
-  
