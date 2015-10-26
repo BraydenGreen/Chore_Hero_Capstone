@@ -46,6 +46,11 @@ class ChoresController < ApplicationController
     redirect_to chores_path
   end
 
+  # def self.assigned
+  #   @chores = Chore.all
+  #   @chores.count(child_id)
+  # end
+
   # def total_points
   #   @chore.child.points_total = @chore.xp_value + @chore.child.points_total
   #   @chore.child.points_total.save
