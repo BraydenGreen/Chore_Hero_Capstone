@@ -39,7 +39,7 @@ gem 'twitter'
 
 # gem 'dotenv-rails', :groups => [:development, :test]
 
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 gem 'rails_12factor', group: :production
 
