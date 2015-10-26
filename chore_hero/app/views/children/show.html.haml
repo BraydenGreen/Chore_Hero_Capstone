@@ -1,13 +1,17 @@
 - if current_user.type == 'Child'
-  .container
+  .container.headline
     .row
       .col.s12.center
-        .col.s4
+        .center-align
+          %br
+          %br
           = image_tag current_user.avatar.url(:medium)
-        .col.m8
+        .center-align
+          %br
+          %br
+          %br
           %h3#bold.headline #{current_user.name}'s Homepage
           %h3.headline XP Total: #{current_user.points_total}
-    %hr
     .row
     %br
     .row
