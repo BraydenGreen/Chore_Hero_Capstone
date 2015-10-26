@@ -1,10 +1,8 @@
 - if current_user.parent?
   .container.center-align
-    %br
-    %br
-    %br
-    %br
     %hr
+    %br
+    %br
     %h1.center-align
     .row.headline
       = form_for @chore do |f|
@@ -26,12 +24,9 @@
           %br
           %br
           %br
-          %br 
- 
-        
-
-
 
           = link_to 'Cancel', user_path(current_user), class: 'btn red darken-4 white-text'
           = f.submit 'Submit Chore', class: 'btn red darken-4 white-text'
-
+          %br
+          %br
+          %br

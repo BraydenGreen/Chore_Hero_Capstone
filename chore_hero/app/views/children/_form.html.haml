@@ -3,9 +3,6 @@
     %br
     %br
     %br
-    %br
-    %br
-    %br
     = form_for @child do |f|
       .input-field.col.s12
         = f.label :name, class: "indigo-text"
@@ -22,3 +19,6 @@
 
       = f.submit 'Submit', class: 'btn red darken-4 white-text'
       = link_to 'Cancel', user_path(current_user), class: 'btn red darken-4 white-text'
+      %br
+      %br
+      %br
