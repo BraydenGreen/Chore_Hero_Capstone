@@ -10,7 +10,7 @@
     %ul.right.hide-on-med-and-down.headline
       %li
         - if user_signed_in?
-          %li= image_tag(current_user.avatar.url(:thumb))
+          %li= image_tag(current_user.avatar.url(:thumb), width: '70', height: '63')
           - if current_user.type == 'Parent'
             %li= link_to "Your Profile", user_path(current_user)
           - else
