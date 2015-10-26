@@ -11,6 +11,10 @@ class BadgesController < ApplicationController
   end
 
   def edit
+    @children_options = []
+    current_user.children.each do |child|
+    @children_options << [child.name, child.id]
+    end
   end
 
   def update
@@ -22,6 +26,10 @@ class BadgesController < ApplicationController
   end
 
   def new
+    @children_options = []
+    current_user.children.each do |child|
+    @children_options << [child.name, child.id]
+    end
     @badge = Badge.new
   end
 

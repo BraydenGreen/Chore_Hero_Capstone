@@ -1,28 +1,25 @@
 .container.center-align.headline
   .row
     .col.s12
-      %h1.headline All Rewards
+      %h1 All Rewards
       - if current_user.parent?
-        = link_to 'Add Rewards', new_badge_path, class: 'btn red darken-4 white-text'
+        = link_to 'Add Reward', new_chore_path, class: 'btn red darken-4 white-text'
         = link_to 'Profile', user_path(current_user), class: 'btn red darken-4 white-text'
-        %br
-        %hr
+      %br
+      %br
+    %hr
   .row
-    - if !current_user.parent?
-      - @badges = current_user.badges
     - if @badges.any?
       - @badges.each do |badge|
         .col.m6
           .row
             .col.m6
+              = image_tag badge.avatar.url(:medium), width: '200', height: '225'
             .col.m6.left-align
               = link_to badge.title, badge_path(badge)
               %p Description: #{badge.description}
-              %p Badge Rank: #{badge.badge_multiplier}
+              / %p Mark complete? #{badge.complete}
+              / %p Which child: #{badge.child_id}
               - if current_user.parent?
                 = button_to 'Edit', edit_badge_path(badge), method: 'get', class: 'btn-small red darken-4 white-text'
-                = button_to 'Destroy', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, class: 'btn-small red darken-4 white-text'
-    - else
-      %h5 There are currently no rewards.
-      -# - if current_user.parent?
-      -#   = link_to 'Create a new badge', new_badge_path, class: 'btn indigo darken-4 white-text'
+                = button_to 'Delete', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, class: 'btn-small red darken-4 white-text'
