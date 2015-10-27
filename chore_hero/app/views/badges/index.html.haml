@@ -7,22 +7,34 @@
         = link_to 'Profile', user_path(current_user), class: 'btn red darken-4 white-text'
       %br
       %br
-    %hr
-  .row
-    - current_user.children.each do |child|
-      - if child.badges.any?
-        - child.badges.each do |badge|
-          .col.m6
-            .row
+      %hr
+      .row
+        - current_user.children.each do |child|
+          - if child.badges.any?
+            - child.badges.each do |badge|
               .col.m6
-                = image_tag badge.avatar.url(:medium), width: '200', height: '200'
-              .col.m6.left-align
-                = badge.title
-                %p Description: #{badge.description}
-                / %p Mark complete? #{badge.complete}
-                / %p Which child: #{badge.child_id}
-                - if current_user.parent?
-                  = button_to 'Edit', edit_badge_path(badge), method: 'get', class: 'btn-small red darken-4 white-text'
-                  = button_to 'Delete', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, class: 'btn-small red darken-4 white-text'
-              %br
-              %br
+                .row
+                  .col.m6
+                    = image_tag badge.avatar.url(:medium), width: '200', height: '200'
+                  .col.m6.left-align
+                    = badge.title
+                    %p Description: #{badge.description}
+                    = button_to 'Edit', edit_badge_path(badge), method: 'get', class: 'btn-small red darken-4 white-text'
+                    = button_to 'Delete', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, class: 'btn-small red darken-4 white-text'
+       
+      - if current_user.type == 'Child'
+        %br
+        %br
+        %hr
+        .row
+          - if current_user.badges.any?
+            - current_user.badges.each do |badge|
+              .col.m6
+                .row
+                  .col.m6
+                    = image_tag badge.avatar.url(:medium), width: '200', height: '200'
+                  .col.m6.left-align
+                    = badge.title
+                    %p Description: #{badge.description}
+          - else
+            %h5 No rewards yet. Do some chores and get rewards!

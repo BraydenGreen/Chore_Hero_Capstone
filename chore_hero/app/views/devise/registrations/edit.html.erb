@@ -39,7 +39,7 @@
   <div class="actions">
     <br>
 
-    <%= button_to "Back", user_path(current_user), class: 'btn red darken-4 white-text' %>
+    <%= link_to 'Cancel', user_path(current_user), class: 'btn red darken-4 white-text'%>
     <%= f.submit "Update", class: 'btn red darken-4 white-text' %>
   </div>
 <% end %>
