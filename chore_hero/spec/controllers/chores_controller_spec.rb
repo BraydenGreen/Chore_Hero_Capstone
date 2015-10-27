@@ -2,19 +2,12 @@ require 'rails_helper'
 
 RSpec.describe ChoresController, type: :controller do
 
-  describe "GET #index" do
-    it "returns http success" do
-      get :index
-      expect(response).to have_http_status(:success)
-    end
+  let(:user) { FactoryGirl.create(:user) }
+  
+  before(:each) do
+    sign_in user
   end
 
-  # describe "GET #new" do
-  #   it "returns http success" do
-  #     get :new
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
 
   describe "POST #create" do
     it "creates a new chore" do
@@ -28,13 +21,13 @@ RSpec.describe ChoresController, type: :controller do
     end
   end
 
-  # describe "GET #edit" do
-  #   it "returns edited chore" do
-  #     chore = Chore.create(title: 'Sweep')
-  #     get :edit, {id: chore.id}
-  #     expect(assigns(:chore).title).to eq('Sweep')
-  #   end
-  # end
+  describe "GET #index" do 
+    it "show a list of all chores" do
+      get :index
+      expect(response).to be_success
+    end
+  end
+  
 
   describe "PUT #update" do 
     it 'updates a chore' do 
@@ -43,13 +36,7 @@ RSpec.describe ChoresController, type: :controller do
       put :update, update_params
       chore = chore.reload
       expect(chore.title).to eq('dont clean')
-    end
-    # it 'renders edit template' do
-    #   chore = Chore.create(title: 'clean', description: 'clean dishes', xp_value: 5.5)
-    #   update_params = {id: chore.id, chore:{title: nil}}
-    #   put :update, update_params
-    #   expect(response).to render_template('edit')
-    # end  
+    end 
   end    
 
   describe "GET #show" do
@@ -59,7 +46,6 @@ RSpec.describe ChoresController, type: :controller do
      expect(chore.title).to eq('clean')
      expect(chore.description).to eq('clean room')
      expect(chore.xp_value).to eq(5.5)
-
     end
   end
 
