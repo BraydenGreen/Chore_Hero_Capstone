@@ -18,7 +18,7 @@
       .col.s12
         %h3.headline.center-align My Chores
         .col.s12.center-align
-          %a= link_to "Go Get Chores in the Mission Log", chores_path, class: "btn red darken-4 white-text"
+          /%a= link_to "Go Get Chores in the Mission Log", chores_path, class: "btn red darken-4 white-text"
           %br
           %br
         %hr
@@ -43,7 +43,40 @@
 
         - else
           %h3.center-align No Chores, Ask for some more
-    %hr
+        %br
+        %hr
+        %br
+
+        - if current_user.badges.any?
+          %h4.headline Here are your REWARDS! Good job!
+          %table
+            %thead
+              %tr
+                %th Rewards
+                %th Description
+
+            %tbody
+              - current_user.badges.each do |badge|
+                %tr
+                  %td
+                    = badge.title
+                  %td
+                    = badge.description
+        - else
+          %h4.headline You don't have any rewards, keep doing your chores!
+          %table
+            %thead
+              %tr
+                %th Rewards
+                %th Description
+
+            %tbody
+              - current_user.badges.each do |badge|
+                %tr
+                  %td
+                    = badge.title
+                  %td
+                    = badge.description
 
   / This is the Parent's view of the Child Showpage, when logged in as a parent
 - else
@@ -56,7 +89,7 @@
     .row.headline
       .col.s12
         %a= link_to 'Add Chore', new_chore_path, class: 'btn red darken-4 white-text'
-        %a= link_to 'Add Badge', new_badge_path, class: 'btn red darken-4 white-text'
+        %a= link_to 'Add Reward', new_badge_path, class: 'btn red darken-4 white-text'
         %br
         %br
         %br
