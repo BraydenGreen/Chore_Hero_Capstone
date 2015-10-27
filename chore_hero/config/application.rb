@@ -17,7 +17,7 @@ Bundler.require(*Rails.groups)
 
 # Dotenv::Railtie.load
 
-HOSTNAME = ENV['HOSTNAME']
+HOSTNAME = ENV['HOSTNAME'] || 'localhost'
 
 module ChoreHero
   class Application < Rails::Application
