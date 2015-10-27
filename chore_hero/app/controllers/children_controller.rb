@@ -13,7 +13,6 @@ class ChildrenController < ApplicationController
   end
 
   def update
-    binding.pry
     if @child.update(children_params)
       redirect_to user_path(current_user.id)
     else
