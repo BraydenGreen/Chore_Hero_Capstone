@@ -8,37 +8,29 @@
           = image_tag current_user.avatar.url(:medium)
         .center-align
           %br
-          %br
-          %br
           %h3#bold.headline #{current_user.name}'s Homepage
           %h3.headline XP Total: #{current_user.points_total}
-    .row
-    %br
     .row
       .col.s12
         %h3.headline.center-align My Chores
         .col.s12.center-align
           /%a= link_to "Go Get Chores in the Mission Log", chores_path, class: "btn red darken-4 white-text"
           %br
-          %br
         %hr
         - if current_user.chores.any?
           %table
             %thead
               %tr
-                %th Chore
-                %th Description
-                %th XP Value
-                %th Chore Due Date
+                %th.center-align Chore
+                %th.center-align XP Value
+                %th.center-align Chore Due Date
 
             %tbody
               - current_user.chores.each do |chore|
                 %tr
-                  %td
+                  %td.center-align
                     = chore.title
-                  %td
-                    = chore.description
-                  %td
+                  %td.center-align
                     = chore.xp_value
 
         - else
@@ -48,19 +40,21 @@
         %br
 
         - if current_user.badges.any?
-          %h4.headline Here are your REWARDS! Good job!
+          %br
+          %h4.headline.center-align Here are your REWARDS! Good job!
+          %br
           %table
             %thead
               %tr
-                %th Rewards
-                %th Description
+                %th.center-align Rewards
+                %th.center-align Description
 
             %tbody
               - current_user.badges.each do |badge|
                 %tr
-                  %td
+                  %td.center-align
                     = badge.title
-                  %td
+                  %td.center-align
                     = badge.description
         - else
           %h4.headline You don't have any rewards, keep doing your chores!
@@ -77,7 +71,8 @@
                     = badge.title
                   %td
                     = badge.description
-
+        %br
+        %br        
   / This is the Parent's view of the Child Showpage, when logged in as a parent
 - if current_user.parent?
   .container.center-align
