@@ -11,6 +11,7 @@ class BadgesController < ApplicationController
   end
 
   def edit
+
     @children_options = []
     current_user.children.each do |child|
     @children_options << [child.name, child.id]
@@ -50,7 +51,7 @@ class BadgesController < ApplicationController
   private
 
      def badge_params
-       params.require(:badge).permit(:title, :description, :badge_multiplier, :avatar)
+       params.require(:badge).permit(:title, :description, :badge_multiplier, :child_id, :avatar)
      end
 
      def badge
