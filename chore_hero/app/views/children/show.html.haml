@@ -145,19 +145,6 @@
 
         - else
           %h4.headline #{@child.name} doesn't have any rewards.
-          %table
-            %thead
-              %tr
-                %th Rewards
-                %th Description
-
-            %tbody
-              - current_user.badges.each do |badge|
-                %tr
-                  %td
-                    = badge.title
-                  %td
-                    = badge.description
 
     %br
     %br
