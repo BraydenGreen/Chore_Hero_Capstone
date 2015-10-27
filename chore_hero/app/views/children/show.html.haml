@@ -122,8 +122,48 @@
                     %span
                       |
                       = link_to 'Delete Chore', chore_path(chore), method: 'delete', data: {confirm: '  Really  Delete?'}
-        - else
+                    %span
+                      |
+                      = link_to 'Mark Complete', complete_chore_path(chore)
+        - else      
           %h3 No Chores assigned
+      %br
+      %hr    
+        - if @child.badges.any?
+          %table
+            %thead
+              %tr
+                %th.center-align Rewards
+                %th.center-align Action
+
+            %tbody
+              - @child.badges.each do |badge|
+                %tr
+                  %td.center-align
+                    = badge.title
+                  %td.center-align
+                    %span
+                      = link_to 'Edit Reward', edit_badge_path(badge), method: 'get'
+                    %span
+                      |
+                      = link_to 'Delete Reward', badge_path(badge), method: 'delete', data: {confirm: '  Really  Delete?'}
+
+        - else
+          %h4.headline #{@child.name} doesn't have any rewards.
+          %table
+            %thead
+              %tr
+                %th Rewards
+                %th Description
+
+            %tbody
+              - current_user.badges.each do |badge|
+                %tr
+                  %td
+                    = badge.title
+                  %td
+                    = badge.description
+
     %br
     %br
     %br
