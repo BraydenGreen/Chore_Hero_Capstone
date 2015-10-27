@@ -79,7 +79,7 @@
                     = badge.description
 
   / This is the Parent's view of the Child Showpage, when logged in as a parent
-- else
+- if current_user.parent?
   .container.center-align
     %h3#bold.headline.center-align You are viewing  #{@child.name}'s Homepage
     %br
