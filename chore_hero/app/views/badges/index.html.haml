@@ -16,7 +16,7 @@
             .col.m6
               = image_tag badge.avatar.url(:medium), width: '200', height: '200'
             .col.m6.left-align
-              = link_to badge.title, badge_path(badge)
+              = badge.title
               %p Description: #{badge.description}
               / %p Mark complete? #{badge.complete}
               / %p Which child: #{badge.child_id}
