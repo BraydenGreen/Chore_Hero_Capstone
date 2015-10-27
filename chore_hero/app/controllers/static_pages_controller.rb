@@ -3,6 +3,9 @@ class StaticPagesController < ApplicationController
   def home
   end
 
+  def charts
+  end
+
   def about
     @twitter = Twitter::REST::Client.new do |config|
       config.consumer_key = ENV['consumer_key']
