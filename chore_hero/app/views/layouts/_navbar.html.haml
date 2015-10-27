@@ -13,7 +13,7 @@
           %li= image_tag(current_user.avatar.url(:thumb), width: '70', height: '63')
           - if current_user.type == 'Parent'
             %li= link_to "Your Profile", user_path(current_user)
-            %li= link_to "Charts", {:controller => 'static_pages', :action => 'charts'}, class: "white-text"
+            %li= link_to "Charts", charts_path, class: "white-text"
             %li= link_to "Chores", chores_path
             %li= link_to "Rewards", badges_path
             %li= link_to 'Log Out', destroy_user_session_path, method: :delete
@@ -33,7 +33,7 @@
       -if user_signed_in?
         - if current_user.parent?
           %li= link_to 'Your Profile', user_path(current_user), class: "white-text"
-          %li= link_to "Charts", {:controller => 'static_pages', :action => 'charts'}, class: "white-text"
+          %li= link_to "Charts", charts_path, class: "white-text"
           %li= link_to 'Chores', chores_path, class: "white-text"
           %li= link_to "Rewards", badges_path, class: "white-text"
           %li= link_to 'Log Out',destroy_user_session_path, method: :delete, class: "white-text"

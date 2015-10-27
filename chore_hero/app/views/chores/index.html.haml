@@ -9,33 +9,36 @@
       %br
     %hr
   .row
-    - if @chores.any?
-      - @chores.each do |chore|
-        - if chore.complete == false
-          .col.m6
-            .row
-              .col.m6
-                = image_tag chore.avatar.url(:medium), width: '200', height: '200'
-              .col.m6.left-align
-                = chore.title
-                /%p Description: #{chore.description}
-                %p XP Value: #{chore.xp_value}
-                / %p Mark complete? #{chore.complete}
-                / %p Which child: #{chore.child_id}
-                - if current_user.parent?
-                  = button_to 'Edit', edit_chore_path(chore), method: 'get', class: 'btn-small red darken-4 white-text'
-                  = button_to 'Delete', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}, class: 'btn-small red darken-4 white-text'
-                  = button_to 'Mark Complete', complete_chore_path(chore), class: 'btn-small red darken-4 white-text'
-            %br
-            %br
-    - else
-      %h5 There are currently no chores.
+    - current_user.children.each do |child|
+      - if child.chores.any?
+        - child.chores.each do |chore|
+          - if chore.complete == false
+            .col.m6
+              .row
+                .col.m6
+                  = image_tag chore.avatar.url(:medium), width: '200', height: '200'
+                .col.m6.left-align
+                  = chore.title
+                  /%p Description: #{chore.description}
+                  %p XP Value: #{chore.xp_value}
+                  / %p Mark complete? #{chore.complete}
+                  / %p Which child: #{chore.child_id}
+                  - if current_user.parent?
+                    = button_to 'Edit', edit_chore_path(chore), method: 'get', class: 'btn-small red darken-4 white-text'
+                    = button_to 'Delete', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}, class: 'btn-small red darken-4 white-text'
+                    = button_to 'Mark Complete', complete_chore_path(chore), class: 'btn-small red darken-4 white-text'
+              %br
+              %br
+      - else
+        %h5 There are currently no chores.
   .row
     .col.s12
       %h3 Completed Chores
       %hr
       %br
-        - @chores.each do |chore|
+    - current_user.children.each do |child|
+      - if child.chores.any?
+        - child.chores.each do |chore|
           - if chore.complete == true
             .col.m6
               .row
