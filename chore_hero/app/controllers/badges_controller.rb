@@ -2,6 +2,11 @@ class BadgesController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index]
   before_action :badge, only: [:show, :edit, :update, :destroy]
 
+  def assigned
+    render json: { records: Badge.assigned(current_user) }  
+  end
+
+
   def index
     # badges should be parent specific
     @badges = Badge.all

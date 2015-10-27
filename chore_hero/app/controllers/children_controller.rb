@@ -13,6 +13,7 @@ class ChildrenController < ApplicationController
   end
 
   def update
+    binding.pry
     if @child.update(children_params)
       redirect_to user_path(current_user.id)
     else
@@ -41,7 +42,7 @@ class ChildrenController < ApplicationController
   private
 
      def children_params
-       params.require(:child).permit(:name, :password, :email, :user_id)
+       params.require(:child).permit(:name, :password, :email, :user_id, :avatar)
      end
 
      def children

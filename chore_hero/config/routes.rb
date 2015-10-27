@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about', as: 'about'
   get '/charts', to: 'static_pages#charts', as: 'charts'
   get '/chores_assigned', to: 'chores#assigned'
+  get '/badges_assigned', to: 'badges#assigned'
+
 end
