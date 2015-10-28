@@ -1,4 +1,5 @@
 .jumbotron-profile.center-align
+  %br
   = image_tag current_user.avatar.url(:medium), width: '300', height: '300'
 - if current_user.type == 'Child'
   .container.headline
@@ -45,30 +46,30 @@
             %thead
               %tr
                 %th.center-align.indigo-text Rewards
-                %th.center-align.indigo-text Description
+                / %th.center-align.indigo-text Description
 
             %tbody
               - current_user.badges.each do |badge|
                 %tr
                   %td.center-align
                     = badge.title
-                  %td.center-align
-                    = badge.description
+                  / %td.center-align
+                  /   = badge.description
         - else
           %h4.headline You don't have any rewards, keep doing your chores!
           %table
             %thead
               %tr
                 %th.center-align Rewards
-                %th.center-align Description
+                / %th.center-align Description
 
             %tbody
               - current_user.badges.each do |badge|
                 %tr
                   %td.center-align
                     = badge.title
-                  %td.center-align
-                    = badge.description
+                  / %td.center-align
+                  /   = badge.description
         %br
         %br
   / This is the Parent's view of the Child Showpage, when logged in as a parent
