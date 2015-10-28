@@ -3,8 +3,8 @@
     .col.s12
       %h1 Rewards
       - if current_user.parent?
-        = link_to 'Add Reward', new_badge_path, class: 'btn red darken-4 white-text'
-        = link_to 'Profile', user_path(current_user), class: 'btn red darken-4 white-text'
+        = link_to 'Add Reward', new_badge_path, id: "round", class: 'btn red darken-4 white-text z-depth-5'
+        = link_to 'Profile', user_path(current_user), id: "round", class: 'btn red darken-4 white-text z-depth-5'
         %br
         %br
         %hr
@@ -19,9 +19,9 @@
                     .col.m6.left-align
                       = badge.title
                       %p Description: #{badge.description}
-                      = button_to 'Edit', edit_badge_path(badge), method: 'get', class: 'btn-small red darken-4 white-text'
-                      = button_to 'Delete', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, class: 'btn-small red darken-4 white-text'
-         
+                      = button_to 'Edit', edit_badge_path(badge), method: 'get', id: "round", class: 'btn red darken-4 white-text z-depth-5'
+                      = button_to 'Delete', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, id: "round", class: 'btn red darken-4 white-text z-depth-5'
+
         - if current_user.type == 'Child'
           %br
           %br

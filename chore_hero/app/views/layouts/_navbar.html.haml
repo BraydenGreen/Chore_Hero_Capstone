@@ -3,7 +3,7 @@
     %ul.left.hide-on-med-and-down.headline
       %li= link_to "About", about_path
       %li= link_to "FAQ", faq_path
-      %li= link_to "Home", root_path  
+      %li= link_to "Home", root_path
       %a.headline#logo.brand-logo.center Chore Hero
     %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
       %i.material-icons menu
@@ -17,15 +17,15 @@
             %li= link_to "Chores", chores_path
             %li= link_to "Rewards", badges_path
             %li= link_to 'Log Out', destroy_user_session_path, method: :delete
-            
+
           - else
             %li= link_to "Your Profile", child_path(current_user)
             %li= link_to "Chores", chores_path
             %li= link_to "Rewards", badges_path
             %li= link_to 'Log Out', destroy_user_session_path, method: :delete
         - else
-          %li= link_to 'Log In', new_user_session_path
-          %li= link_to 'Sign Up', new_user_registration_path
+          %li= link_to 'Parent / Child Log In', new_user_session_path
+          %li= link_to 'Parent Sign Up', new_user_registration_path
     %ul#mobile-demo.side-nav.indigo.darken-4.left-align.headline
       %li= link_to 'Home', root_path, class: "white-text"
       %li= link_to 'FAQ', faq_path, class: "white-text"
@@ -42,5 +42,5 @@
           %li= link_to 'Chores', chores_path, class: "white-text"
           %li= link_to 'Log Out',destroy_user_session_path, method: :delete, class: "white-text"
       - else
-        %li= link_to 'Log In', new_user_session_path, class: "white-text"
-        %li= link_to 'Sign Up', new_user_registration_path, class: "white-text"
+        %li= link_to 'Parent / Child Log In', new_user_session_path, class: "white-text"
+        %li= link_to 'Parent Sign Up', new_user_registration_path, class: "white-text"

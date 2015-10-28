@@ -72,7 +72,7 @@
                   %td
                     = badge.description
         %br
-        %br        
+        %br
   / This is the Parent's view of the Child Showpage, when logged in as a parent
 - if current_user.parent?
   .container.center-align
@@ -87,9 +87,9 @@
         %br
         %br
         %br
-        %a= link_to 'Edit Child', edit_child_path, class: 'btn red darken-4 white-text'
-        %a= link_to 'Add Chore', new_chore_path, class: 'btn red darken-4 white-text'
-        %a= link_to 'Add Reward', new_badge_path, class: 'btn red darken-4 white-text'
+        %a= link_to 'Edit Child', edit_child_path, id: "round", class: 'btn red darken-4 white-text z-depth-4'
+        %a= link_to 'Add Chore', new_chore_path, id: "round", class: 'btn red darken-4 white-text z-depth-4'
+        %a= link_to 'Add Reward', new_badge_path, id: "round", class: 'btn red darken-4 white-text z-depth-4'
         %br
         %br
         %br
@@ -113,17 +113,17 @@
                     = chore.xp_value
                   %td.center-align
                     %span
-                      = link_to 'Edit Chore', edit_chore_path(chore)
+                      = link_to 'Edit Chore', edit_chore_path(chore), class: "z-depth-4"
                     %span
                       |
-                      = link_to 'Delete Chore', chore_path(chore), method: 'delete', data: {confirm: '  Really  Delete?'}
+                      = link_to 'Delete Chore', chore_path(chore), method: 'delete', class: "z-depth-4", data: {confirm: '  Really  Delete?'}
                     %span
                       |
                       = link_to 'Mark Complete', complete_chore_path(chore)
-        - else      
+        - else
           %h3 No Chores assigned
       %br
-      %hr    
+      %hr
         - if @child.badges.any?
           %table
             %thead
@@ -152,4 +152,3 @@
     %br
     %br
     %br
-

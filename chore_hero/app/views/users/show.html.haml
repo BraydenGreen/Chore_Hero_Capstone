@@ -6,20 +6,20 @@
       %br
         = image_tag current_user.avatar.url(:medium)
         %h1#bold.headline.center-align #{current_user.name}'s Homepage
-        = link_to 'Edit Your Profile', edit_user_registration_path, class: "btn red darken-4 white-text"
+        = link_to 'Edit Your Profile', edit_user_registration_path, id: "round", class: "btn red darken-4 white-text z-depth-4"
   %div.center-align
     .row
       .col.s12
         %br
         %h3.headline Kids Info
-        %a= link_to "Add Child", new_child_path, class: "btn red darken-4 white-text"
-        %a= link_to 'Add Reward', new_badge_path, class: 'btn red darken-4 white-text'
-        %a= link_to 'Add Chore', new_chore_path, class: 'btn red darken-4 white-text'
+        %a= link_to "Add Child", new_child_path, id: "round", class: "btn red darken-4 white-text z-depth-4"
+        %a= link_to 'Add Reward', new_badge_path, id: "round", class: 'btn red darken-4 white-text z-depth-4'
+        %a= link_to 'Add Chore', new_chore_path, id: "round", class: 'btn red darken-4 white-text z-depth-4'
         %br
         %br
         %br
       - if current_user.children.any?
-        %table.responsive-table.highlight
+        %table.responsive-table.highlight.z-depth-3
           %thead
             %tr
               %th.center-align Name

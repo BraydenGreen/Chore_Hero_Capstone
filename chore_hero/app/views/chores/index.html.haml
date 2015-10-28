@@ -4,8 +4,8 @@
     .col.s12
       %h1 Chores
       - if current_user.parent?
-        = link_to 'Add Chore', new_chore_path, class: 'btn red darken-4 white-text'
-        = link_to 'Profile', user_path(current_user), class: 'btn red darken-4 white-text'
+        = link_to 'Add Chore', new_chore_path, id: "round", class: 'btn red darken-4 white-text'
+        = link_to 'Profile', user_path(current_user), id: "round", class: 'btn red darken-4 white-text'
         %br
         %br
         %hr
@@ -25,9 +25,9 @@
                         / %p Mark complete? #{chore.complete}
                         / %p Which child: #{chore.child_id}
                         - if current_user.parent?
-                          = button_to 'Edit', edit_chore_path(chore), method: 'get', class: 'btn-small red darken-4 white-text'
-                          = button_to 'Delete', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}, class: 'btn-small red darken-4 white-text'
-                          = button_to 'Mark Complete', complete_chore_path(chore), class: 'btn-small red darken-4 white-text'
+                          = button_to 'Edit', edit_chore_path(chore), method: 'get', id: "round", class: 'btn-small red darken-4 white-text'
+                          = button_to 'Delete', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}, id: "round", class: 'btn-small red darken-4 white-text'
+                          = button_to 'Mark Complete', complete_chore_path(chore), id: "round", class: 'btn-small red darken-4 white-text'
                     %br
                     %br
             - else
