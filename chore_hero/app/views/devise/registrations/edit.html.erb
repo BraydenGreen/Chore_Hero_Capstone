@@ -39,15 +39,15 @@
   <div class="actions">
     <br>
 
-    <%= link_to 'Cancel', user_path(current_user), id: "round", class: 'btn red darken-4 white-text' %>
-    <%= f.submit "Update", id: "round", class: 'btn red darken-4 white-text' %>
+    <%= link_to 'Cancel', user_path(current_user), id: "round", class: 'btn red darken-4 white-text z-depth-4' %>
+    <%= f.submit "Update", id: "round", class: 'btn red darken-4 white-text z-depth-4' %>
 
   </div>
 <% end %>
 <br>
 <hr>
 <h6 class="indigo-text">Cancel my account</h6>
- <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, id: "round", class: 'btn red darken-4 white-text' %></p>
+ <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, id: "round", class: 'btn red darken-4 white-text z-depth-4' %></p>
 </div>
 </div>
 <br>

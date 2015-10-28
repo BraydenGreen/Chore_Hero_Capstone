@@ -6,13 +6,13 @@
     %h1.center-align
     .row.headline
       = form_for @badge do |f|
-        .input-field.col.s6
+        .field.col.s6
           = f.label :title, class: "indigo-text"
           = f.text_field :title, class: 'materialize-textarea'
-        .input-field.col.s6
+        .field.col.s6
           = f.select(:child_id, options_for_select(@children_options))
           %label.indigo-text Reward Child
-        / .input-field.col.s12
+        / .ield.col.s12
         /   = f.label :description, class: "indigo-text"
         /   = f.text_area :description, class: 'materialize-textarea'
         .field.col.s12
@@ -23,8 +23,8 @@
           %br
           %br
 
-          = link_to 'Cancel', user_path(current_user), id: "round", class: 'btn red darken-4 white-text'
-          = f.submit 'Submit Reward', id: "round", class: 'btn red darken-4 white-text'  
+          = link_to 'Cancel', user_path(current_user), id: "round", class: 'btn red darken-4 white-text z-depth-4'
+          = f.submit 'Submit Reward', id: "round", class: 'btn red darken-4 white-text z-depth-4'
           %br
           %br
           %br

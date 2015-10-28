@@ -113,17 +113,17 @@
                     = chore.xp_value
                   %td.center-align
                     %span
-                      = link_to 'Edit Chore', edit_chore_path(chore), class: "z-depth-4"
+                      = link_to 'Edit Chore', edit_chore_path(chore)
                     %span
                       |
-                      = link_to 'Delete Chore', chore_path(chore), method: 'delete', class: "z-depth-4", data: {confirm: '  Really  Delete?'}
+                      = link_to 'Delete Chore', chore_path(chore), method: 'delete', data: {confirm: '  Really  Delete?'}
                     %span
                       |
                       = link_to 'Mark Complete', complete_chore_path(chore)
         - else
           %h3 No Chores assigned
 
-      %hr    
+      %hr
       %br
       %hr
         - if @child.badges.any?
@@ -146,7 +146,7 @@
                       = link_to 'Delete Reward', badge_path(badge), method: 'delete', data: {confirm: '  Really  Delete?'}
 
         - else
-          %h4.headline #{@child.name} doesn't have any rewards.     
+          %h4.headline #{@child.name} doesn't have any rewards.
     %br
     %br
     %br
