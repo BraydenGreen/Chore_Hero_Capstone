@@ -1,26 +1,26 @@
-<div id="image">
-<div id="backdrop" class="container">
-<h2 class="center-align">Sign up</h2>
+
+<div class="container">
+<h3 class="center-align">PARENT SIGN UP</h3>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
   <div class="input-field">
-    <%= f.label :name, class: 'white-text' %><br />
-    <%= f.text_field :name, autofocus: true, class: 'white-text' %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, class: "indigo-text" %>
   </div>
 
   <div class="input-field">
-    <%= f.label :email, class: 'white-text' %><br />
-    <%= f.email_field :email, class: 'white-text' %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, class: "indigo-text" %>
   </div>
 
   <div class="input-field">
-    <%= f.label :password, class: 'white-text' %>
+    <%= f.label :password %>
     <% if @validatable %>
     <em class="hide">(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class: 'white-text' %>
+    <%= f.password_field :password, autocomplete: "off", class: "indigo-text" %>
   </div>
 
 
@@ -33,10 +33,9 @@
   <hr />
 
   <div class="actions">
-    <%= f.submit "Sign up",class: 'btn-small red darken-4 white-text' %>
+    <%= f.submit "Sign up", id: "round",class: 'btn-small red darken-4 white-text' %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
-</div>
 </div>

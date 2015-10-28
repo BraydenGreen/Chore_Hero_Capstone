@@ -19,8 +19,8 @@
           = f.label :xp_value, class: "indigo-text"
           = f.text_field :xp_value, class: 'materialize-textarea'
         %h6.col.s6.indigo-text
-          Due Date 
-        %h6.col.s6.indigo-text  
+          Due Date
+        %h6.col.s6.indigo-text
           Add A Picture
         %input.datepicker.col.s6{:type => "date"}
         .field.col.s6
@@ -29,9 +29,9 @@
           %br
           %br
           %br
-        
-          = link_to 'Cancel', user_path(current_user), class: 'btn red darken-4 white-text'
-          = f.submit 'Submit Chore', class: 'btn red darken-4 white-text'
+
+          = link_to 'Cancel', user_path(current_user), id: "round", class: 'btn red darken-4 white-text'
+          = f.submit 'Submit Chore', id: "round", class: 'btn red darken-4 white-text'
           %br
           %br
           %br

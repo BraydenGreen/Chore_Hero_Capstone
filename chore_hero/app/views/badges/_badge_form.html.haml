@@ -22,12 +22,9 @@
           %br
           %br
           %br
- 
-          = link_to 'Cancel', user_path(current_user), class: 'btn red darken-4 white-text'
-          = f.submit 'Submit Reward', class: 'btn red darken-4 white-text'  
-          %br
-          %br
-          %br
-        
 
-
+          = link_to 'Cancel', user_path(current_user), id: "round", class: 'btn red darken-4 white-text'
+          = f.submit 'Submit Reward', id: "round", class: 'btn red darken-4 white-text'  
+          %br
+          %br
+          %br
