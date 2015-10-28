@@ -46,7 +46,7 @@
             %thead
               %tr
                 %th.center-align.indigo-text Rewards
-                %th.center-align.indigo-text Description
+                / %th.center-align.indigo-text Description
 
             %tbody
               - current_user.badges.each do |badge|
@@ -61,15 +61,15 @@
             %thead
               %tr
                 %th.center-align Rewards
-                %th.center-align Description
+                / %th.center-align Description
 
             %tbody
               - current_user.badges.each do |badge|
                 %tr
                   %td.center-align
                     = badge.title
-                  %td.center-align
-                    = badge.description
+                  / %td.center-align
+                  /   = badge.description
         %br
         %br
   / This is the Parent's view of the Child Showpage, when logged in as a parent
