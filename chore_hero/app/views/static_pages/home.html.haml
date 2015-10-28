@@ -42,8 +42,7 @@
       %h3.center-align.headline
         What are you waiting for JOIN NOW?
       .center-align
-        %a.waves-effect.waves-light.btn-large.red.darken-4{href: 'users/sign_up'}
-          Create account today!
+        = link_to 'Create account today!', new_user_registration_path, id: "round", class: 'btn red darken-4 white-text z-depth-4'
     - if user_signed_in?
       %h3.center-align.headline Thank you for being a valued customer. Have a super day!
 

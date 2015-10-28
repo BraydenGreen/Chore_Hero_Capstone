@@ -4,8 +4,8 @@
     .col.s12
       %h1 Rewards
       - if current_user.parent?
-        = link_to 'Add Reward', new_badge_path, id: "round", class: 'btn red darken-4 white-text z-depth-5'
-        = link_to 'Profile', user_path(current_user), id: "round", class: 'btn red darken-4 white-text z-depth-5'
+        = link_to 'Add Reward', new_badge_path, id: "round", class: 'btn red darken-4 white-text z-depth-4'
+        = link_to 'Profile', user_path(current_user), id: "round", class: 'btn red darken-4 white-text z-depth-4'
         %br
         %br
         %hr
@@ -22,8 +22,8 @@
                       / %p Description: #{badge.description}
                       %br
                       %br
-                      = button_to 'Edit', edit_badge_path(badge), method: 'get', id: "round", class: 'btn red darken-4 white-text z-depth-5'
-                      = button_to 'Delete', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, id: "round", class: 'btn red darken-4 white-text z-depth-5'
+                      = button_to 'Edit', edit_badge_path(badge), method: 'get', id: "round", class: 'btn red darken-4 white-text z-depth-4'
+                      = button_to 'Delete', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, id: "round", class: 'btn red darken-4 white-text z-depth-4'
 
         - if current_user.type == 'Child'
           %br
@@ -41,5 +41,4 @@
                       %p Description: #{badge.description}
             - else
 
-              %h5 No rewards yet. Do some chores and get rewards!   
-
+              %h5 No rewards yet. Do some chores and get rewards!
