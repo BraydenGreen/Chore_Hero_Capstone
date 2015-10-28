@@ -60,8 +60,10 @@ class ChoresController < ApplicationController
     @chore.complete = true
     @chore.save
     @chore.child.add_points_and_save(@chore.xp_value)
-    redirect_to chores_path
+    redirect_to :back
   end
+
+  # get user id off of current user
 
   private
 

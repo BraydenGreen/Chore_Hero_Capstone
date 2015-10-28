@@ -27,7 +27,7 @@
                         - if current_user.parent?
                           = button_to 'Edit', edit_chore_path(chore), method: 'get', id: "round", class: 'btn red darken-4 white-text z-depth-4'
                           = button_to 'Delete', chore_path(chore), method: 'delete', data: {confirm: 'Really delete this chore?'}, id: "round", class: 'btn red darken-4 white-text z-depth-4'
-                          = button_to 'Mark Complete', complete_chore_path(chore), id: "round", class: 'btn red darken-4 white-text z-depth-4'
+                          = link_to 'Mark Complete', complete_chore_path(chore), id: "round", class: 'btn red darken-4 white-text z-depth-4'
                     %br
                     %br
             - else

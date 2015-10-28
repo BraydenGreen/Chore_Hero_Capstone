@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :badges
   resources :chores
 
-  post '/complete_chore/:id', to: 'chores#complete_chore', as: 'complete_chore'
+  get '/complete_chore/:id', to: 'chores#complete_chore', as: 'complete_chore'
   #post '/complete_chore/:id', to: 'chores#complete_chore', as: 'complete_chore'
 
   get '/faq', to: 'static_pages#faq', as: 'faq'
