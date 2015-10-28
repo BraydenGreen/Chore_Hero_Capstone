@@ -1,11 +1,10 @@
+.jumbotron-profile.center-align
+  %br
+  = image_tag current_user.avatar.url(:medium)
 - if current_user.type == 'Child'
   .container.headline
     .row
       .col.s12.center
-        .center-align
-          %br
-          %br
-          = image_tag current_user.avatar.url(:medium)
         .center-align
           %br
           %h3#bold.headline #{current_user.name}'s Homepage
