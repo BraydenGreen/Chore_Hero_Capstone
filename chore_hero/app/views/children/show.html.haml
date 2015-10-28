@@ -60,15 +60,15 @@
           %table
             %thead
               %tr
-                %th Rewards
-                %th Description
+                %th.center-align Rewards
+                %th.center-align Description
 
             %tbody
               - current_user.badges.each do |badge|
                 %tr
-                  %td
+                  %td.center-align
                     = badge.title
-                  %td
+                  %td.center-align
                     = badge.description
         %br
         %br
