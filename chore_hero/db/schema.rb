@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20151026215735) do
     t.string   "type"
     t.integer  "parent_id"
     t.string   "name"
+    t.integer  "age"
     t.float    "points_total",           default: 0.0
   end
 
