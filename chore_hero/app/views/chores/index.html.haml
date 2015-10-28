@@ -18,7 +18,7 @@
                     .row
                       .col.m6
                         = image_tag chore.avatar.url(:medium), width: '200', height: '200'
-                      .col.m6.left-align
+                      .col.m6.left-align#profile_text
                         = chore.title
                         /%p Description: #{chore.description}
                         %p XP Value: #{chore.xp_value}
@@ -45,7 +45,7 @@
                     .row
                       .col.m6
                         = image_tag chore.avatar.url(:medium), width: '200', height: '200'
-                      .col.m6.left-align
+                      #profile_text.col.m6.left-align
                         = chore.title
                         %p XP Value: #{chore.xp_value}
                         - if current_user.parent?
