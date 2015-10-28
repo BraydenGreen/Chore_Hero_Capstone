@@ -85,6 +85,8 @@
         = image_tag @child.avatar.url(:medium)
         %br
         %br
+        = link_to 'Profile', user_path(current_user), id: "round", class: 'btn red darken-4 white-text z-depth-5'
+        %br
         %br
         %a= link_to 'Edit Child', edit_child_path, id: "round", class: 'btn red darken-4 white-text z-depth-4'
         %a= link_to 'Add Chore', new_chore_path, id: "round", class: 'btn red darken-4 white-text z-depth-4'
@@ -145,8 +147,7 @@
                       = link_to 'Delete Reward', badge_path(badge), method: 'delete', data: {confirm: '  Really  Delete?'}
 
         - else
-          %h4.headline #{@child.name} doesn't have any rewards.
-
+          %h4.headline #{@child.name} doesn't have any rewards.     
     %br
     %br
     %br

@@ -6,8 +6,22 @@
         The #{badge.title} Badge
       %h1.col.s12
         = @badge.title
-      %p.col.l6.s12
-        = @badge.description
+      / %p.col.l6.s12
+      /   = @badge.description
+      .row
+        - if current_user.badges.any?
+          - current_user.badges.each do |badge|
+            .col.m6
+              .row
+                .col.m6
+                  = image_tag badge.avatar.url(:medium), width: '200', height: '200'
+                .col.m6.left-align#profile_text
+                  = badge.title
+                  %p Description: #{badge.description}
+        - else
+
+          %h5 No rewards yet. Do some chores and get rewards!   
+
 
       -# %hr.col.s12
       -#
