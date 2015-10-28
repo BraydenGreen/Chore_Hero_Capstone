@@ -1,6 +1,5 @@
 .jumbotron-profile.center-align
-  %br
-  = image_tag current_user.avatar.url(:medium)
+  = image_tag current_user.avatar.url(:medium), width: '450', height: '350'
 - if current_user.type == 'Child'
   .container.headline
     .row
