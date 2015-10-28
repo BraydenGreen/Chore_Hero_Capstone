@@ -1,14 +1,13 @@
 .jumbotron-profile.center-align
   %br
-  = image_tag current_user.avatar.url(:medium)
+  = image_tag current_user.avatar.url(:medium), width: '300', height: '300'
 .container.headline
   .row
     .col.s12.center
       .col.m4
       %br
-      %br
         %h1#bold.headline.center-align #{current_user.name}'s Homepage
-        = link_to 'Edit Your Profile', edit_user_registration_path, id: "round", class: "btn red darken-4 white-text z-depth-4"
+        = link_to 'Edit Your Account', edit_user_registration_path, id: "round", class: "btn red darken-4 white-text z-depth-4"
   %div.center-align
     .row
       .col.s12
@@ -26,7 +25,7 @@
             %tr
               %th.center-align Name
               %th.center-align Chore Count
-              %th.center-align Completed
+              / %th.center-align Completed
               %th.center-align Rewards
               %th.center-align Actions
           %tbody
@@ -36,8 +35,8 @@
                   = link_to child.name, child_path(child)
                 %td.center-align
                   = child.chores.count
-                %td.center-align
-                  -# = child.chores.complete
+                / %td.center-align
+                /   -# = child.chores.complete
                 %td.center-align
                   = child.badges.count
                 %td.center-align

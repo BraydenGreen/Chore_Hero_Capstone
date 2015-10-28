@@ -12,9 +12,9 @@
         .input-field.col.s6
           = f.select(:child_id, options_for_select(@children_options))
           %label.indigo-text Reward Child
-        .input-field.col.s12
-          = f.label :description, class: "indigo-text"
-          = f.text_area :description, class: 'materialize-textarea'
+        / .input-field.col.s12
+        /   = f.label :description, class: "indigo-text"
+        /   = f.text_area :description, class: 'materialize-textarea'
         .field.col.s12
           /= f.label :avatar, class: 'btn red darken-4 white-text'
           = f.file_field :avatar

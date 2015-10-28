@@ -1,6 +1,5 @@
 .jumbotron-profile.center-align
-  %br
-  = image_tag current_user.avatar.url(:medium)
+  = image_tag current_user.avatar.url(:medium), width: '300', height: '300'
 - if current_user.type == 'Child'
   .container.headline
     .row
@@ -11,7 +10,7 @@
           %h3.headline XP Total: #{current_user.points_total}
     .row
       .col.s12
-        %h3.headline.center-align My Chores
+        %h3#profile_text.headline.center-align My Chores
         .col.s12.center-align
           /%a= link_to "Go Get Chores in the Mission Log", chores_path, class: "btn red darken-4 white-text"
           %br
@@ -20,9 +19,9 @@
           %table
             %thead
               %tr
-                %th.center-align Chore
-                %th.center-align XP Value
-                %th.center-align Chore Due Date
+                %th.center-align.indigo-text Chore
+                %th.center-align.indigo-text XP Value
+                / %th.center-align Chore Due Date
 
             %tbody
               - current_user.chores.each do |chore|
@@ -40,13 +39,13 @@
 
         - if current_user.badges.any?
           %br
-          %h4.headline.center-align Here are your REWARDS! Good job!
+          %h4#profile_text.headline.center-align Here are your REWARDS! Good job!
           %br
           %table
             %thead
               %tr
-                %th.center-align Rewards
-                %th.center-align Description
+                %th.center-align.indigo-text Rewards
+                %th.center-align.indigo-text Description
 
             %tbody
               - current_user.badges.each do |badge|
@@ -60,15 +59,15 @@
           %table
             %thead
               %tr
-                %th Rewards
-                %th Description
+                %th.center-align Rewards
+                %th.center-align Description
 
             %tbody
               - current_user.badges.each do |badge|
                 %tr
-                  %td
+                  %td.center-align
                     = badge.title
-                  %td
+                  %td.center-align
                     = badge.description
         %br
         %br
@@ -84,6 +83,8 @@
       .col.s12
         = image_tag @child.avatar.url(:medium)
         %br
+        %br
+        = link_to 'Profile', user_path(current_user), id: "round", class: 'btn red darken-4 white-text z-depth-5'
         %br
         %br
         %a= link_to 'Edit Child', edit_child_path, id: "round", class: 'btn red darken-4 white-text z-depth-4'
@@ -145,8 +146,7 @@
                       = link_to 'Delete Reward', badge_path(badge), method: 'delete', data: {confirm: '  Really  Delete?'}
 
         - else
-          %h4.headline #{@child.name} doesn't have any rewards.
-
+          %h4.headline #{@child.name} doesn't have any rewards.     
     %br
     %br
     %br

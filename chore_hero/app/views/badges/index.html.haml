@@ -17,9 +17,11 @@
                   .row
                     .col.m6
                       = image_tag badge.avatar.url(:medium), width: '200', height: '200'
-                    .col.m6.left-align
+                    .col.m6.left-align#profile_text
                       = badge.title
-                      %p Description: #{badge.description}
+                      / %p Description: #{badge.description}
+                      %br
+                      %br
                       = button_to 'Edit', edit_badge_path(badge), method: 'get', id: "round", class: 'btn red darken-4 white-text z-depth-5'
                       = button_to 'Delete', badge_path(badge), method: 'delete', data: {confirm: 'Really delete this badge?'}, id: "round", class: 'btn red darken-4 white-text z-depth-5'
 
@@ -34,7 +36,7 @@
                   .row
                     .col.m6
                       = image_tag badge.avatar.url(:medium), width: '200', height: '200'
-                    .col.m6.left-align
+                    .col.m6.left-align#profile_text
                       = badge.title
                       %p Description: #{badge.description}
             - else
