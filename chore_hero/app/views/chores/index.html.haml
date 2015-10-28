@@ -47,7 +47,6 @@
                         = image_tag chore.avatar.url(:medium), width: '200', height: '200'
                       .col.m6.left-align
                         = chore.title
-                        %p Description: #{chore.description}
                         %p XP Value: #{chore.xp_value}
                         - if current_user.parent?
                           = button_to 'Edit', edit_chore_path(chore), method: 'get', class: 'btn-small red darken-4 white-text'

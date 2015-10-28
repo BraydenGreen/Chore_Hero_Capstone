@@ -11,7 +11,7 @@
           %h3.headline XP Total: #{current_user.points_total}
     .row
       .col.s12
-        %h3.headline.center-align My Chores
+        %h3#profile_text.headline.center-align My Chores
         .col.s12.center-align
           /%a= link_to "Go Get Chores in the Mission Log", chores_path, class: "btn red darken-4 white-text"
           %br
@@ -20,9 +20,9 @@
           %table
             %thead
               %tr
-                %th.center-align Chore
-                %th.center-align XP Value
-                %th.center-align Chore Due Date
+                %th.center-align.indigo-text Chore
+                %th.center-align.indigo-text XP Value
+                / %th.center-align Chore Due Date
 
             %tbody
               - current_user.chores.each do |chore|
@@ -40,13 +40,13 @@
 
         - if current_user.badges.any?
           %br
-          %h4.headline.center-align Here are your REWARDS! Good job!
+          %h4#profile_text.headline.center-align Here are your REWARDS! Good job!
           %br
           %table
             %thead
               %tr
-                %th.center-align Rewards
-                %th.center-align Description
+                %th.center-align.indigo-text Rewards
+                %th.center-align.indigo-text Description
 
             %tbody
               - current_user.badges.each do |badge|
