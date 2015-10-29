@@ -25,11 +25,28 @@
 
             %tbody
               - current_user.chores.each do |chore|
-                %tr
-                  %td.center-align
-                    = chore.title
-                  %td.center-align
-                    = chore.xp_value
+                - if chore.complete == false
+                  %tr
+                    %td.center-align
+                      = chore.title
+                    %td.center-align
+                      = chore.xp_value
+          %h4#profile_text.center-align.headline Completed Chores
+          %table
+            %thead
+              %tr
+                %th.center-align.indigo-text Chore
+                %th.center-align.indigo-text XP Value
+
+            %tbody
+              - current_user.chores.each do |chore|
+                - if chore.complete == true
+                  %tr
+                    %td.center-align
+                      = chore.title
+                    %td.center-align
+                      = chore.xp_value              
+
 
         - else
           %h3.center-align No Chores, Ask for some more
@@ -45,7 +62,6 @@
             %thead
               %tr
                 %th.center-align.indigo-text Rewards
-                %th.center-align.indigo-text Description
 
             %tbody
               - current_user.badges.each do |badge|
@@ -60,7 +76,6 @@
             %thead
               %tr
                 %th.center-align Rewards
-                %th.center-align Description
 
             %tbody
               - current_user.badges.each do |badge|
@@ -95,6 +110,7 @@
         %br
         %hr
         - if @child.chores.any?
+          %h4.headline Chores
           %table.col.s12
             %thead
               %tr
@@ -104,29 +120,54 @@
 
             %tbody
               - @child.chores.each do |chore|
-                %tr
-                  %td.center-align
-                    = chore.title
-                  / %td.center-align
-                  /   = chore.description
-                  %td.center-align
-                    = chore.xp_value
-                  %td.center-align
-                    %span
-                      = link_to 'Edit Chore', edit_chore_path(chore)
-                    %span
-                      |
-                      = link_to 'Delete Chore', chore_path(chore), method: 'delete', data: {confirm: '  Really  Delete?'}
-                    %span
-                      |
-                      = link_to 'Mark Complete', complete_chore_path(chore)
+                - if chore.complete == false
+                  %tr
+                    %td.center-align
+                      = chore.title
+                    / %td.center-align
+                    /   = chore.description
+                    %td.center-align
+                      = chore.xp_value
+                    %td.center-align
+                      %span
+                        = link_to 'Edit Chore', edit_chore_path(chore)
+                      %span
+                        |
+                        = link_to 'Delete Chore', chore_path(chore), method: 'delete', data: {confirm: '  Really  Delete?'}
+                      %span
+                        |
+                        = link_to 'Mark Complete', complete_chore_path(chore)
+
+          %h4.headline.add_margin Completed Chores
+          %table.col.s12
+            %thead
+              %tr
+                %th.center-align Chore
+                %th.center-align XP Value
+                %th.center-align Action              
+            %tbody
+              - @child.chores.each do |chore|
+                - if chore.complete == true
+                  %tr
+                    %td.center-align
+                      = chore.title
+                    / %td.center-align
+                    /   = chore.description
+                    %td.center-align
+                      = chore.xp_value
+                    %td.center-align
+                      %span
+                        = link_to 'Edit Chore', edit_chore_path(chore)
+                      %span
+                        |
+                        = link_to 'Delete Chore', chore_path(chore), method: 'delete', data: {confirm: '  Really  Delete?'}
+                              
         - else
           %h3 No Chores assigned
 
-      %hr
       %br
-      %hr
         - if @child.badges.any?
+          %h4.headline.add_margin Rewards
           %table
             %thead
               %tr

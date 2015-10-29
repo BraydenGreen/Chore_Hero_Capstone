@@ -47,7 +47,7 @@ class ChoresController < ApplicationController
 
   def destroy
     @chore.destroy
-    redirect_to chores_path
+    redirect_to :back
   end
 
 
